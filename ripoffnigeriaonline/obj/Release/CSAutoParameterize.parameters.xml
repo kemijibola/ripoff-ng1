@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="RipOffContext-Web.config Connection String" description="RipOffContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=5.10.111.112,780;Initial Catalog=kemijibola_jetherDataContext;Persist Security Info=True;User ID=kemijibola_jethertech;Password=S3cur!ty1984kemi" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Workload\\Documents\\Visual\ Studio\ 2013\\Projects\\ripoffnigeriaonline\\ripoffnigeriaonline\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='RipOffContext']/@connectionString" />
+  </parameter>
+</parameters>

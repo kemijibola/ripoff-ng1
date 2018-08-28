@@ -1,0 +1,103 @@
+﻿<div class="hbox hbox-auto-xs hbox-auto-sm" cg-busy="myPromise">
+    <!-- .col -->
+    <div class="col w-lg bg-light dk b-r bg-auto" id="aside">
+        <div class="wrapper bg b-b">
+
+            <h3 class="m-n font-thin">Legal Proceeding</h3>
+        </div>
+        <div class="panel-heading">
+            <div class="clearfix">
+                <div class="clear">
+                    <div >
+                       <a ui-sref="app.report.detail({reportId:reportId})" class="text-info-dker btn-link"> {{reportDetails[0].report.reportText | htmlToPlaintext}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="clearfix">
+                        <div class="clear">
+                            <div class="h3 m-t-xs m-b-xs">
+                                Report #:{{reportId}}
+                                <i class="fa fa-circle text-success pull-right text-xs m-t-sm"></i>
+                            </div>
+                            <strong class="text-danger">Complainant: </strong><strong class="text-black"> {{reportDetails[0].userName | uppercase}}</strong><br>
+                            <strong class="text-danger">Complainee: </strong><strong class="text-black"> {{reportDetails[0].report.company | uppercase}}</strong><br>
+                            <!--<strong>Firm In Charge: </strong><small class="text-black"> {{firmInCharge[0].firmName | uppercase}}</small>-->
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <!--<div class="panel-heading">
+            <div class="clearfix">
+                <div class="clear">
+                    <div class="h5 m-t-xs m-b-xs">
+                        <strong>Original Report: </strong><a ui-sref="app.report.detail({reportId:reportId})" class="text-dark-dk"> {{reportDetails[0].report.reportText | htmlToPlaintext}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+
+
+    <!-- /.col -->
+    <!-- .col -->
+
+
+    <div class="col">
+        <div class="wrapper">
+            <div class="timeline">
+                <div class="tl-header">
+                    <div class="btn btn-sm btn btn-default btn-rounded">Open</div>
+                </div>
+
+                <div class="tl-item tl-left">
+                    <div class="tl-wrap">
+                        <span class="tl-date">{{reportDetails[0].report.clientLawsuits[0].startCreated | date:'shortDate'}}</span>
+                        <div class="tl-content panel padder b-a">
+                            <span class="arrow left pull-up hidden-left"></span>
+                            <span class="arrow right pull-up visible-left"></span>
+                            <strong class="text-uppercase">Complainant File Opened</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="tl-item tl-left" ng-repeat="update in reportDetails[0].report.caseUpdates">
+                    <div class="tl-wrap b-primary">
+                        <span class="tl-date">{{update.dateCreated | fromNow}}</span>
+                        <div class="tl-content panel padder b-a block">
+                            <span class="arrow left pull-up hidden-left"></span>
+                            <span class="arrow right pull-up visible-left"></span>
+                            <small class="text-lt m-b-sm"><b>Status:</b> {{update.status}}</small>
+                            
+                            <div class="panel-body pull-in b-t b-light">
+                                <strong> {{update.update}} </strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tl-item tl-left">
+                    <div class="tl-wrap">
+                        <!--<span class="tl-date">{{reportDetails[0].report.clientLawsuits[0].endCreated | date:'shortDate'}}</span>-->
+                        <div class="tl-content panel padder b-a">
+                            <span class="arrow left pull-up hidden-left"></span>
+                            <span class="arrow right pull-up visible-left"></span>
+                            <strong ng-show="caseClosed == true" class="text-uppercase">Complainant File Closed</strong>
+                            <strong ng-show="caseClosed == false" class="text-uppercase">Complainant case still in progress</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="tl-header">
+                    <div ng-show="caseClosed == true" class="btn btn-sm btn btn-black btn-rounded">Close</div>
+                    <div ng-show="caseClosed == false" class="btn btn-sm btn btn-success btn-rounded">In Progress</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.col -->
+</div>

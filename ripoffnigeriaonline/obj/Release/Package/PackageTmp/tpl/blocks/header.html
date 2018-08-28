@@ -1,0 +1,101 @@
+      <!-- navbar header -->
+      <div class="navbar-header {{app.settings.navbarHeaderColor}}" ng-controller="MenuHeaderCtrl">
+        <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
+          <i class="glyphicon glyphicon-user"></i>
+        </button>
+        <button class="pull-right visible-xs" ui-toggle-class="off-screen" data-target=".app-aside" ui-scroll-to="app">
+          <i class="glyphicon glyphicon-align-justify"></i>
+        </button>
+        <!-- brand -->
+          <a href="#/" class="navbar-brand text-lt" ng-hide="isAdmin==true">
+              <span class=""> <img src="img/favicon.png" alt="Dont be Intimidated..Report that rip-off NOW"></span>
+              <span class="hidden-folded m-l-xs">{{app.name}}</span>
+          </a>
+        <!-- / brand -->
+      </div>
+      <!-- / navbar header -->
+
+      <!-- navbar collapse -->
+      <div class="collapse pos-rlt navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
+        <!-- buttons -->
+        <div class="nav navbar-nav hidden-xs">
+          <a href class="btn no-shadow navbar-btn" ng-click="app.settings.asideFolded = !app.settings.asideFolded">
+            <i class="fa {{app.settings.asideFolded ? 'fa-indent' : 'fa-dedent'}} fa-fw"></i>
+          </a>
+
+        </div>
+        <!-- / buttons -->
+
+        <!-- / link and dropdown -->
+
+        <!-- search form -->
+          <form class="navbar-form navbar-form-sm navbar-left shift" name="searchForm" ui-shift="prependTo" target=".navbar-collapse" role="search" ng-controller="MenuHeaderCtrl" novalidate>
+              <div class="form-group">
+                  <div class="input-group">
+                      <input type="text" ng-model="companyName" name="company" class="form-control input-sm bg-light no-border rounded padder" placeholder="Type keyword..." required>
+                      <span class="input-group-btn">
+                          <button type="submit" class="btn btn-sm bg-light rounded" ng-disabled="searchForm.$invalid" ng-click="toSearchRoute()"><i class="fa fa-search"></i></button>
+                      </span>
+                  </div>
+              </div>
+          </form>
+        <!-- / search form -->
+
+        <!-- nabar right -->
+          <ul class="nav navbar-nav navbar-right" ng-controller="MenuHeaderCtrl">
+              <li>
+                  <a ui-sref="app.form.report" ng-hide="isAdmin==true">
+                      <i class="fa fa-fw fa-edit"></i>
+                      <b class="text-danger">File Report</b>
+                  </a>
+              </li>
+              <!--<li>
+            <a ui-sref="app.access.signup" ng-show="!authLog(false)">
+                <i class="fa fa-fw fa-unlock-alt"></i>
+                Register to file a Report
+            </a>
+        </li>-->
+              <li>
+                  <a ui-sref="access.signin" ng-show="!authLog(false)">
+                      <i class="fa fa-fw fa-sign-in"></i>
+                      Login / Register
+                  </a>
+              </li>
+              <li class="dropdown" dropdown ng-show="authLog()">
+                  <a href class="dropdown-toggle clear" dropdown-toggle>
+                      <i class="fa fa-fw fa-user"></i>
+                      <span class="hidden-sm hidden-md">{{username}}</span> <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu animated fadeInRight w">
+                      <!--<li class="wrapper b-b m-b-sm bg-light m-t-n-xs">
+                    <div>
+                        <p>{{userEmail}}</p>
+                    </div>
+                    <span ng-show="emailActivated==true"><i class="icon-check text-success m-r-xs"></i>Confirmed</span>
+                    <span ng-show="emailActivated==false"><i class="icon-close text-danger m-r-xs"></i>Not Confirmed <br><button type ="submit" class="text-danger">Confirm Email</button></span>
+                </li>-->
+                      <li>
+                          <a ui-sref="app.settings({username:user.userName})" ng-hide="isAdmin==true">
+                              <span>Settings</span>
+                          </a>
+                      </li>
+                      <li>
+                          <a ui-sref="app.profile({username:user.userName})" ng-hide="isAdmin==true">Profile</a>
+                      </li>
+                      <li>
+                          <a ui-sref="app.faq" ng-hide="isAdmin==true">
+                              <span class="label bg-info pull-right">new</span>
+                              Help
+                          </a>
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                          <a ng-click="logOut()">Logout</a>
+                      </li>
+                  </ul>
+              </li>
+          </ul>
+        <!-- / navbar right -->
+
+      </div>
+      <!-- / navbar collapse -->

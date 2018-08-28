@@ -1,0 +1,46 @@
+
+    <div class="container w-xxl w-auto-xs" ng-controller="SigninFormController" ng-init="app.settings.container = false;">
+        <a data-ng-href="#/app/ripoff" class="wrapper text-center img-responsive block m-t"><span class=""> <img src="img/rip_new-100.png" alt="."></span></a>
+        <div class="m-b-lg">
+            <div class="wrapper text-center">
+                <strong>Sign into your account</strong>
+            </div>
+            <form name="frmLogin" class="form-validation">
+                <fieldset ng-disabled="isLogging == true">
+                    <div data-ng-hide="message == ''" class="text-danger wrapper text-center">
+                        {{message}}
+                    </div>
+                    <div class="list-group list-group-sm">
+                        <div class="list-group-item">
+                            <input type="text" name="user" placeholder="Username" ng-model="loginData.userName" class="form-control no-border" required autofocus>
+                        </div>
+                        <div class="list-group-item">
+                            <input type="password" name="password" placeholder="Password" class="form-control no-border" ng-model="loginData.password" required>
+                        </div>
+                    </div>
+                    <span us-spinner="{radius:30, width:8, length: 16}"></span>
+                    <button type="submit" class="btn btn-lg btn-black btn-block" ng-click="login()" ng-disabled="frmLogin.$invalid">Log in</button>
+                    <div class="text-center m-t m-b"><a ui-sref="access.forgotpwd">Forgot password?</a></div>
+                    <div class="line line-dashed"></div>
+                    <p class="text-center"><small>Do not have an account?</small></p>
+                    <a ui-sref="app.access.signup" class="btn btn-lg btn-black btn-block">Create an account</a>
+                </fieldset>
+            </form>
+
+            <!--<div class="row">
+                     <h2 class="form-login-heading">Social Logins</h2>
+                     <p>Or you can login using one of the social logins bleow</p>
+                     <button class="btn btn-large btn-facebook btn-block" type="button" data-ng-click="authExternalProvider('Facebook')"><i class="fa fa-facebook"></i> | Connect with Facebook</button>
+                     <button class="btn btn-large btn-google-plus btn-block" type="button" data-ng-click="authExternalProvider('Google')"><i class="fa fa-google-plus"></i> | Connect with Google+</button>
+            </div>-->
+        </div>
+
+        <!--<div class="w-xxl w-auto-xs">
+            <p class="text-center">OR</p>
+            <button class="btn btn-lg btn-facebook btn-block" type="button" data-ng-click="authExternalProvider('Facebook')"><i class="fa fa-facebook"></i> | Register with Facebook</button>
+        </div>-->
+
+
+        <div class="text-center" ng-include="'tpl/blocks/page_footer.html'"></div>
+    </div>
+    

@@ -1,0 +1,946 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FEDCE6FA-87F8-4AD9-AFC9-9E60E1168EFA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ripoffnigeriaonline</RootNamespace>
+    <AssemblyName>ripoffnigeriaonline</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="CacheCow.Common">
+      <HintPath>..\..\rip-offnigeria\rip-offnigeria\bin\CacheCow.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="CacheCow.Server">
+      <HintPath>..\..\rip-offnigeria\rip-offnigeria\bin\CacheCow.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\..\ripoffnigeria\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <HintPath>..\..\ripoffnigeria\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Cors.3.0.1\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Diagnostics">
+      <HintPath>..\packages\Microsoft.Owin.Diagnostics.3.0.1\lib\net45\Microsoft.Owin.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.HttpListener">
+      <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.3.0.1\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting">
+      <HintPath>..\packages\Microsoft.Owin.Hosting.3.0.1\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Jwt">
+      <HintPath>..\..\..\..\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ripoffnigeria.DTO">
+      <HintPath>..\ripoffnigeria.DTO\bin\Debug\ripoffnigeria.DTO.dll</HintPath>
+    </Reference>
+    <Reference Include="ripoffnigeria.Repository">
+      <HintPath>..\ripoffnigeria.Repository\bin\Debug\ripoffnigeria.Repository.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGrid">
+      <HintPath>..\packages\Sendgrid.6.3.4\lib\SendGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGrid.SmtpApi">
+      <HintPath>..\packages\SendGrid.SmtpApi.1.3.1\lib\net40\SendGrid.SmtpApi.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGridMail">
+      <HintPath>..\packages\Sendgrid.6.3.4\lib\SendGridMail.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.identitymodel.services" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ripoffnigeria\packages\System.IdentityModel.Tokens.Jwt.4.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>..\..\rip-offnigeria\rip-offnigeria\bin\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData">
+      <HintPath>..\..\rip-offnigeria\rip-offnigeria\bin\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Thinktecture.IdentityModel">
+      <HintPath>..\..\rip-offnigeria\rip-offnigeria\bin\Thinktecture.IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.1.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\BankController.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CityController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\ClientMeetingRequestController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
+    <Compile Include="Controllers\FirmCategoryController.cs" />
+    <Compile Include="Controllers\FirmCommentController.cs" />
+    <Compile Include="Controllers\FirmImageController.cs" />
+    <Compile Include="Controllers\firmRegionController.cs" />
+    <Compile Include="Controllers\LawCategoryController.cs" />
+    <Compile Include="Controllers\LawFirmController.cs" />
+    <Compile Include="Controllers\LawTypeCategoryController.cs" />
+    <Compile Include="Controllers\LocationTypeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PaymentTypeController.cs" />
+    <Compile Include="Controllers\RebuttalController.cs" />
+    <Compile Include="Controllers\RebuttalImageController.cs" />
+    <Compile Include="Controllers\RejectionReasonController.cs" />
+    <Compile Include="Controllers\ReportBugController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\ReportImageController.cs" />
+    <Compile Include="Controllers\ReportRejectionController.cs" />
+    <Compile Include="Controllers\RipOffFirmController.cs" />
+    <Compile Include="Controllers\RipOffLawyerController.cs" />
+    <Compile Include="Controllers\RolesController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\StateController.cs" />
+    <Compile Include="Controllers\TopicController.cs" />
+    <Compile Include="Controllers\trackUserController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper.cs" />
+    <Compile Include="Helpers\ConsumeWebApi.cs" />
+    <Compile Include="Helpers\IQueryableExtensions.cs" />
+    <Compile Include="Infrastructure\ApplicationDbContext.cs" />
+    <Compile Include="Infrastructure\ApplicationRole.cs" />
+    <Compile Include="Infrastructure\ApplicationRoleManager.cs" />
+    <Compile Include="Infrastructure\ApplicationUser.cs" />
+    <Compile Include="Infrastructure\ApplicationUserManager.cs" />
+    <Compile Include="Infrastructure\ClaimsAuthorizationAttribute.cs" />
+    <Compile Include="Infrastructure\ExtendedClaimsProvider.cs" />
+    <Compile Include="Infrastructure\RolesFromClaims.cs" />
+    <Compile Include="Models\AccountBindingModels.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ExternalLoginModels.cs" />
+    <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\PhotoViewModel.cs" />
+    <Compile Include="Models\ReportModel.cs" />
+    <Compile Include="Models\RoleBindingModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Providers\CustomJwtFormat.cs" />
+    <Compile Include="Providers\CustomOAuthProvider.cs" />
+    <Compile Include="Providers\FacebookAuthProvider.cs" />
+    <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Photo\IPhotoManager.cs" />
+    <Compile Include="Photo\LocalPhotoManager.cs" />
+    <Compile Include="Photo\PhotoActionResult.cs" />
+    <Compile Include="Photo\PhotoMultipartFormDataStreamProvider.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="authComplete.html" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="img\select2-spinner.gif" />
+    <Content Include="js\admin\adminrole.js" />
+    <Content Include="js\admin\approval.js" />
+    <Content Include="js\admin\approveReport.js" />
+    <Content Include="js\admin\client.js" />
+    <Content Include="js\admin\nav.js" />
+    <Content Include="js\admin\roles.js" />
+    <Content Include="js\admin\admin.js" />
+    <Content Include="js\admin\adminSignUp.js" />
+    <Content Include="js\app\user\associate.html" />
+    <Content Include="js\app\user\associateController.js" />
+    <Content Include="js\app\user\authComplete.js" />
+    <Content Include="js\app\user\externalLogin.js" />
+    <Content Include="js\config.lazyload.js" />
+    <Content Include="libs\angular-busy\angular-busy.html" />
+    <Content Include="libs\angular-busy\angular-busy.js" />
+    <Content Include="libs\angular-busy\angular-busy.min.js" />
+    <Content Include="libs\angular\angular-animate\angular-animate.min.js" />
+    <Content Include="libs\angular\angular-aria\angular-aria.js" />
+    <Content Include="libs\angular\angular-bootstrap-nav-tree\dist\abn_tree.css" />
+    <Content Include="libs\angular\angular-bootstrap-nav-tree\dist\abn_tree_directive.js" />
+    <Content Include="libs\angular\angular-bootstrap\ui-bootstrap-tpls.js" />
+    <Content Include="libs\angular\angular-cache\angular-cache.js" />
+    <Content Include="libs\angular\angular-cookies\angular-cookies.js" />
+    <Content Include="libs\angular\angular-file-upload\angular-file-upload.js" />
+    <Content Include="libs\angular\angular-local-storage.min.js" />
+    <Content Include="libs\angular\angular-material\angular-material.css" />
+    <Content Include="libs\angular\angular-material\angular-material.js" />
+    <Content Include="libs\angular\angular-messages\angular-messages.js" />
+    <Content Include="libs\angular\angular-resource\angular-resource.js" />
+    <Content Include="libs\angular\angular-sanitize\angular-sanitize.js" />
+    <Content Include="libs\angular\angular-skycons\angular-skycons.js" />
+    <Content Include="libs\angular\angular-skycons\angular-skycons.min.js" />
+    <Content Include="libs\angular\angular-smart-table\dist\smart-table.js" />
+    <Content Include="libs\angular\angular-smart-table\dist\smart-table.min.js" />
+    <Content Include="libs\angular\angular-spinner\angular-loading-spinner.js" />
+    <Content Include="libs\angular\angular-spinner\angular-spinner.min.js" />
+    <Content Include="libs\angular\angular-spinner\spin.min.js" />
+    <Content Include="libs\angular\angular-touch\angular-touch.js" />
+    <Content Include="libs\angular\angular-translate-loader-static-files\angular-translate-loader-static-files.js" />
+    <Content Include="libs\angular\angular-translate-storage-cookie\angular-translate-storage-cookie.js" />
+    <Content Include="libs\angular\angular-translate-storage-local\angular-translate-storage-local.js" />
+    <Content Include="libs\angular\angular-translate\angular-translate.js" />
+    <Content Include="libs\angular\angular-ui-calendar\src\calendar.js" />
+    <Content Include="libs\angular\angular-ui-grid\ui-grid.bootstrap.css" />
+    <Content Include="libs\angular\angular-ui-grid\ui-grid.css" />
+    <Content Include="libs\angular\angular-ui-grid\ui-grid.js" />
+    <Content Include="libs\angular\angular-ui-grid\ui-grid.min.css" />
+    <Content Include="libs\angular\angular-ui-grid\ui-grid.min.js" />
+    <Content Include="libs\angular\angular-ui-grid\ui-grid.svg" />
+    <Content Include="libs\angular\angular-ui-router\release\angular-ui-router.js" />
+    <Content Include="libs\angular\angular-ui-router\release\angular-ui-router.min.js" />
+    <Content Include="libs\angular\angular-ui-select\dist\select.css" />
+    <Content Include="libs\angular\angular-ui-select\dist\select.js" />
+    <Content Include="libs\angular\angular-ui-select\dist\select.min.css" />
+    <Content Include="libs\angular\angular-ui-select\dist\select.min.js" />
+    <Content Include="libs\angular\angular-ui-utils\ui-utils.js" />
+    <Content Include="libs\angular\angular-xeditable\dist\css\xeditable.css" />
+    <Content Include="libs\angular\angular-xeditable\dist\js\xeditable.js" />
+    <Content Include="libs\angular\angular-xeditable\dist\js\xeditable.min.js" />
+    <Content Include="libs\angular\angularjs-toaster\toaster.css" />
+    <Content Include="libs\angular\angularjs-toaster\toaster.js" />
+    <Content Include="libs\angular\angular\angular.min.js" />
+    <Content Include="libs\angular\jquery.easy-pie-chart\dist\angular.easypiechart.js" />
+    <Content Include="libs\angular\ng-grid\build\ng-grid.debug.js" />
+    <Content Include="libs\angular\ng-grid\build\ng-grid.js" />
+    <Content Include="libs\angular\ng-grid\build\ng-grid.min.js" />
+    <Content Include="libs\angular\ng-grid\ng-grid.bootstrap.css" />
+    <Content Include="libs\angular\ng-grid\ng-grid.min.css" />
+    <Content Include="libs\angular\ng-progress\ngProgress.css" />
+    <Content Include="libs\angular\ng-progress\ngprogress.js" />
+    <Content Include="libs\angular\ngImgCrop\compile\minified\ng-img-crop.css" />
+    <Content Include="libs\angular\ngImgCrop\compile\minified\ng-img-crop.js" />
+    <Content Include="libs\angular\ngstorage\ngStorage.js" />
+    <Content Include="libs\angular\oclazyload\dist\ocLazyLoad.js" />
+    <Content Include="libs\angular\oclazyload\dist\ocLazyLoad.min.js" />
+    <Content Include="libs\angular\textAngular\dist\textAngular-sanitize.min.js" />
+    <Content Include="libs\angular\textAngular\dist\textAngular.min.js" />
+    <Content Include="libs\angular\venturocket-angular-slider\build\angular-slider.css" />
+    <Content Include="libs\angular\venturocket-angular-slider\build\angular-slider.js" />
+    <Content Include="libs\angular\venturocket-angular-slider\build\angular-slider.min.js" />
+    <Content Include="libs\angular\videogular-buffering\buffering.min.js" />
+    <Content Include="libs\angular\videogular-controls\controls.min.js" />
+    <Content Include="libs\angular\videogular-ima-ads\ima-ads.min.js" />
+    <Content Include="libs\angular\videogular-overlay-play\overlay-play.min.js" />
+    <Content Include="libs\angular\videogular-poster\poster.min.js" />
+    <Content Include="libs\angular\videogular\videogular.min.js" />
+    <Content Include="libs\angular\xeditable\xeditable.js" />
+    <Content Include="libs\angular\xeditable\xeditable.min.js" />
+    <Content Include="libs\assets\animate.css\animate.css" />
+    <Content Include="libs\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="libs\assets\font-awesome\css\font-awesome.min.css" />
+    <Content Include="libs\assets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="libs\assets\simple-line-icons\css\simple-line-icons.css" />
+    <Content Include="libs\assets\simple-line-icons\fonts\Simple-Line-Icons.svg" />
+    <Content Include="libs\jquery\bootstrap-daterangepicker\daterangepicker-bs3.css" />
+    <Content Include="libs\jquery\bootstrap-daterangepicker\daterangepicker.js" />
+    <Content Include="libs\jquery\bootstrap-filestyle\src\bootstrap-filestyle.js" />
+    <Content Include="libs\jquery\bootstrap-slider\bootstrap-slider.css" />
+    <Content Include="libs\jquery\bootstrap-slider\bootstrap-slider.js" />
+    <Content Include="libs\jquery\bootstrap-tagsinput\dist\bootstrap-tagsinput.css" />
+    <Content Include="libs\jquery\bootstrap-tagsinput\dist\bootstrap-tagsinput.js" />
+    <Content Include="libs\jquery\bootstrap-touchspin\dist\jquery.bootstrap-touchspin.min.css" />
+    <Content Include="libs\jquery\bootstrap-touchspin\dist\jquery.bootstrap-touchspin.min.js" />
+    <Content Include="libs\jquery\bootstrap-wysiwyg\bootstrap-wysiwyg.js" />
+    <Content Include="libs\jquery\bootstrap-wysiwyg\external\jquery.hotkeys.js" />
+    <Content Include="libs\jquery\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="libs\jquery\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="libs\jquery\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="libs\jquery\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="libs\jquery\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="libs\jquery\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="libs\jquery\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="libs\jquery\bootstrap\dist\js\npm.js" />
+    <Content Include="libs\jquery\bower-jvectormap\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="libs\jquery\bower-jvectormap\jquery-jvectormap-us-aea-en.js" />
+    <Content Include="libs\jquery\bower-jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="libs\jquery\bower-jvectormap\jquery-jvectormap.css" />
+    <Content Include="libs\jquery\chosen\bootstrap-chosen.css" />
+    <Content Include="libs\jquery\chosen\chosen-sprite%402x.png" />
+    <Content Include="libs\jquery\chosen\chosen-sprite.png" />
+    <Content Include="libs\jquery\chosen\chosen.jquery.min.js" />
+    <Content Include="libs\jquery\datatables\media\js\jquery.dataTables.min.js" />
+    <Content Include="libs\jquery\flot-spline\js\jquery.flot.spline.min.js" />
+    <Content Include="libs\jquery\flot.orderbars\js\jquery.flot.orderBars.js" />
+    <Content Include="libs\jquery\flot.tooltip\js\jquery.flot.tooltip.min.js" />
+    <Content Include="libs\jquery\flot\jquery.flot.js" />
+    <Content Include="libs\jquery\flot\jquery.flot.pie.js" />
+    <Content Include="libs\jquery\flot\jquery.flot.resize.js" />
+    <Content Include="libs\jquery\footable\css\fonts\footable.svg" />
+    <Content Include="libs\jquery\footable\css\footable.core.css" />
+    <Content Include="libs\jquery\footable\dist\footable.all.min.js" />
+    <Content Include="libs\jquery\footable\v3\css\footable.bootstrap.css" />
+    <Content Include="libs\jquery\footable\v3\css\footable.bootstrap.min.css" />
+    <Content Include="libs\jquery\footable\v3\js\footable.js" />
+    <Content Include="libs\jquery\footable\v3\js\footable.min.js" />
+    <Content Include="libs\jquery\fullcalendar\dist\fullcalendar.css" />
+    <Content Include="libs\jquery\fullcalendar\dist\fullcalendar.min.js" />
+    <Content Include="libs\jquery\fullcalendar\dist\fullcalendar.theme.css" />
+    <Content Include="libs\jquery\html5sortable\jquery.sortable.js" />
+    <Content Include="libs\jquery\jquery.easy-pie-chart\dist\jquery.easypiechart.fill.js" />
+    <Content Include="libs\jquery\jquery.sparkline\dist\jquery.sparkline.retina.js" />
+    <Content Include="libs\jquery\jquery\dist\jquery.js" />
+    <Content Include="libs\jquery\jquery_appear\jquery.appear.js" />
+    <Content Include="libs\jquery\moment\moment.js" />
+    <Content Include="libs\jquery\nestable\jquery.nestable.css" />
+    <Content Include="libs\jquery\nestable\jquery.nestable.js" />
+    <Content Include="libs\jquery\plugins\integration\bootstrap\3\dataTables.bootstrap.css" />
+    <Content Include="libs\jquery\plugins\integration\bootstrap\3\dataTables.bootstrap.js" />
+    <Content Include="libs\jquery\plugins\integration\bootstrap\3\dataTables.bootstrap.min.js" />
+    <Content Include="libs\jquery\plugins\integration\bootstrap\3\index.html" />
+    <Content Include="libs\jquery\plugins\integration\bootstrap\images\sort_asc.png" />
+    <Content Include="libs\jquery\plugins\integration\bootstrap\images\sort_asc_disabled.png" />
+    <Content Include="libs\jquery\plugins\integration\bootstrap\images\sort_both.png" />
+    <Content Include="libs\jquery\plugins\integration\bootstrap\images\sort_desc.png" />
+    <Content Include="libs\jquery\plugins\integration\bootstrap\images\sort_desc_disabled.png" />
+    <Content Include="libs\jquery\pwstrength\jquery.pwstrength.js" />
+    <Content Include="libs\jquery\screenfull\dist\screenfull.min.js" />
+    <Content Include="libs\jquery\select2\select2-bootstrap.css" />
+    <Content Include="libs\jquery\select2\select2-spinner.gif" />
+    <Content Include="libs\jquery\select2\select2.css" />
+    <Content Include="libs\jquery\select2\select2.min.js" />
+    <Content Include="libs\jquery\select2\select2.png" />
+    <Content Include="libs\jquery\select2\select2x2.png" />
+    <Content Include="libs\jquery\slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="libs\angular\angular-ui-grid\ui-grid.eot" />
+    <Content Include="libs\angular\angular-ui-grid\ui-grid.ttf" />
+    <Content Include="libs\angular\angular-ui-grid\ui-grid.woff" />
+    <Content Include="libs\assets\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="libs\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="libs\assets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="libs\assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="libs\assets\simple-line-icons\fonts\Simple-Line-Icons.eot" />
+    <Content Include="libs\assets\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="libs\assets\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+    <Content Include="libs\jquery\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="libs\jquery\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="libs\jquery\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="libs\jquery\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="libs\jquery\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="libs\jquery\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="libs\jquery\footable\css\fonts\footable.eot" />
+    <Content Include="libs\jquery\footable\css\fonts\footable.ttf" />
+    <Content Include="libs\jquery\footable\css\fonts\footable.woff" />
+    <Content Include="libs\jquery\jquery.easy-pie-chart\.DS_Store" />
+    <Content Include="libs\jquery\jquery.sparkline\.DS_Store" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <None Include=".bin\git.cmd" />
+    <None Include=".bin\node.cmd" />
+    <None Include=".bin\npm.cmd" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <None Include="Properties\PublishProfiles\rip-offnigeria.com - Web Deploy.pubxml" />
+    <Content Include="libs\jquery\uuid\angular-uuid2.js" />
+    <Content Include="libs\jquery\wysiwyg\bootstrap-wysiwyg.js" />
+    <Content Include="libs\jquery\wysiwyg\jquery.hotkeys.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.0.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\Material-Design-Icons.svg" />
+    <Content Include="psd\ui.png" />
+    <Content Include="appInfo.js" />
+    <Content Include="css\angular-busy.css" />
+    <Content Include="css\angular-busy.min.css" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\app.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\font.css" />
+    <Content Include="css\material-design-icons.css" />
+    <Content Include="css\md.css" />
+    <Content Include="css\register.css" />
+    <Content Include="css\simple-line-icons.css" />
+    <Content Include="css\xeditable.css" />
+    <Content Include="egAppStatus.html" />
+    <Content Include="egAppStatus.js" />
+    <Content Include="img\B125%25.jpg" />
+    <Content Include="img\B150%25.jpg" />
+    <Content Include="img\B50%25.jpg" />
+    <Content Include="img\B75%25.jpg" />
+    <Content Include="img\banner1.jpg" />
+    <Content Include="img\banner\B125%25.jpg" />
+    <Content Include="img\banner\B150%25.jpg" />
+    <Content Include="img\banner\lawyer.jpg" />
+    <Content Include="img\banner\lawyerresize.jpg" />
+    <Content Include="img\bg.jpg" />
+    <Content Include="img\favicon.ico" />
+    <Content Include="img\favicon.png" />
+    <Content Include="img\full_chronicles.jpg" />
+    <Content Include="img\jether logo.jpg" />
+    <Content Include="img\jether-logo.png" />
+    <Content Include="img\jether-logosmall.png" />
+    <Content Include="img\lawyerbanner.jpg" />
+    <Content Include="img\logo_adeyemo.jpg" />
+    <Content Include="img\need-a-lawer-banner2.jpg" />
+    <Content Include="img\needlawyer75.jpg" />
+    <Content Include="img\needlawyerB.jpg" />
+    <Content Include="img\ripoff-stamp.png" />
+    <Content Include="img\rip_new-100.png" />
+    <Content Include="index.html" />
+    <Content Include="js\app.js" />
+    <Content Include="js\app\anonymous.js" />
+    <Content Include="js\app\calendar\calendar.js" />
+    <Content Include="js\app\index\ripoff.js" />
+    <Content Include="js\app\lawfirm\fsearch.html" />
+    <Content Include="js\app\lawfirm\fsearch.js" />
+    <Content Include="js\app\lawfirm\getLawyer.js" />
+    <Content Include="js\app\lawfirm\invoice.js" />
+    <Content Include="js\app\lawfirm\lawfirm.html" />
+    <Content Include="js\app\lawfirm\lawfirm.js" />
+    <Content Include="js\app\lawfirm\payment.js" />
+    <Content Include="js\app\lawfirm\preference.html" />
+    <Content Include="js\app\mail\mail-service.js" />
+    <Content Include="js\app\mail\mail.js" />
+    <Content Include="js\app\maintenance\bug.js" />
+    <Content Include="js\app\maintenance\contact.js" />
+    <Content Include="js\app\maintenance\feedback.js" />
+    <Content Include="js\app\map\load-google-maps.js" />
+    <Content Include="js\app\map\map.js" />
+    <Content Include="js\app\map\ui-map.js" />
+    <Content Include="js\app\music\ctrl.js" />
+    <Content Include="js\app\music\theme.css" />
+    <Content Include="js\app\music\videogular.css" />
+    <Content Include="js\app\note\note.js" />
+    <Content Include="js\app\payment\process.js" />
+    <Content Include="js\app\rebuttal\rebuttal.js" />
+    <Content Include="js\app\report\detail.js" />
+    <Content Include="js\app\report\latest.js" />
+    <Content Include="js\app\report\lawsuit.js" />
+    <Content Include="js\app\report\report.js" />
+    <Content Include="js\app\report\update.js" />
+    <Content Include="js\app\search\search.js" />
+    <Content Include="js\app\settings\settings.html" />
+    <Content Include="js\app\settings\settings.js" />
+    <Content Include="js\app\user\forgotpwd.js" />
+    <Content Include="js\app\user\profile.js" />
+    <Content Include="js\app\user\resetPwd.js" />
+    <Content Include="js\app\user\signin.js" />
+    <Content Include="js\app\user\signup.js" />
+    <Content Include="js\app\weather\angular-skycons.js" />
+    <Content Include="js\app\weather\ctrl.js" />
+    <Content Include="js\app\weather\skycons.js" />
+    <Content Include="js\config.js" />
+    <Content Include="js\config.router.js" />
+    <Content Include="js\controllers\bootstrap.js" />
+    <Content Include="js\controllers\chart.js" />
+    <Content Include="js\controllers\editor.js" />
+    <Content Include="js\controllers\file-upload.js" />
+    <Content Include="js\controllers\form.js" />
+    <Content Include="js\controllers\grid.js" />
+    <Content Include="js\controllers\imgcrop.js" />
+    <Content Include="js\controllers\material.js" />
+    <Content Include="js\controllers\scroll.js" />
+    <Content Include="js\controllers\select.js" />
+    <Content Include="js\controllers\signin.js" />
+    <Content Include="js\controllers\signup.js" />
+    <Content Include="js\controllers\slider.js" />
+    <Content Include="js\controllers\tab.js" />
+    <Content Include="js\controllers\table.js" />
+    <Content Include="js\controllers\toaster.js" />
+    <Content Include="js\controllers\tree.js" />
+    <Content Include="js\controllers\uigrid.js" />
+    <Content Include="js\controllers\vectormap.js" />
+    <Content Include="js\controllers\xeditable.js" />
+    <Content Include="js\directives\clickToEdit.js" />
+    <Content Include="js\directives\directives.js" />
+    <Content Include="js\directives\dirPagination.js" />
+    <Content Include="js\directives\dirPagination.tpl.html" />
+    <Content Include="js\directives\modalDirective.js" />
+    <Content Include="js\directives\searchView.html" />
+    <Content Include="js\directives\setnganimate.js" />
+    <Content Include="js\directives\ui-butterbar.js" />
+    <Content Include="js\directives\ui-focus.js" />
+    <Content Include="js\directives\ui-fullscreen.js" />
+    <Content Include="js\directives\ui-jq.js" />
+    <Content Include="js\directives\ui-module.js" />
+    <Content Include="js\directives\ui-nav.js" />
+    <Content Include="js\directives\ui-scroll.js" />
+    <Content Include="js\directives\ui-shift.js" />
+    <Content Include="js\directives\ui-toggleclass.js" />
+    <Content Include="js\directives\ui-validate.js" />
+    <Content Include="js\directives\validationDirective.js" />
+    <Content Include="js\filters\fromNow.js" />
+    <Content Include="js\filters\htmlUnsafe.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\services\authInterceptorService.js" />
+    <Content Include="js\services\authService.js" />
+    <Content Include="js\services\contantService.js" />
+    <Content Include="js\services\firmpreference.js" />
+    <Content Include="js\services\infrastructureDataService.js" />
+    <Content Include="js\services\ripoffService.js" />
+    <Content Include="js\services\searchService.js" />
+    <Content Include="js\services\trackService.js" />
+    <Content Include="js\services\ui-load.js" />
+    <Content Include="js\services\wizardService.js" />
+    <Content Include="l10n\de_DE.js" />
+    <Content Include="l10n\en.js" />
+    <Content Include="l10n\it_IT.js" />
+    <Content Include="Photo\egFiles.js" />
+    <Content Include="Photo\egPhotoUploader.html" />
+    <Content Include="Photo\egPhotoUploader.js" />
+    <Content Include="Photo\egUpload.js" />
+    <Content Include="Photo\photo.module.js" />
+    <Content Include="Photo\photoManager.js" />
+    <Content Include="Photo\photoManagerClient.js" />
+    <Content Include="Photo\photos.html" />
+    <Content Include="Photo\photos.js" />
+    <Content Include="tpl\admin\admin.html" />
+    <Content Include="tpl\admin\adminrole.html" />
+    <Content Include="tpl\admin\approve.html" />
+    <Content Include="tpl\admin\dashboard.html" />
+    <Content Include="tpl\admin\register.html" />
+    <Content Include="tpl\admin\reports.html" />
+    <Content Include="tpl\admin\role.html" />
+    <Content Include="tpl\admin\roles.html" />
+    <Content Include="tpl\admin\secure.html" />
+    <Content Include="tpl\app.html" />
+    <Content Include="tpl\au.html" />
+    <Content Include="tpl\blank.html" />
+    <Content Include="tpl\blocks\aside.html" />
+    <Content Include="tpl\blocks\aside.music.html" />
+    <Content Include="tpl\blocks\aside.right.html" />
+    <Content Include="tpl\blocks\header.html" />
+    <Content Include="tpl\blocks\header.music.html" />
+    <Content Include="tpl\blocks\material.aside.html" />
+    <Content Include="tpl\blocks\material.header.html" />
+    <Content Include="tpl\blocks\material.layout.html" />
+    <Content Include="tpl\blocks\material.nav.html" />
+    <Content Include="tpl\blocks\nav.html" />
+    <Content Include="tpl\blocks\page_footer.html" />
+    <Content Include="tpl\blocks\settings.html" />
+    <Content Include="tpl\admin\client.html" />
+    <Content Include="tpl\confirmEmail.html" />
+    <Content Include="tpl\contactfirm.html" />
+    <Content Include="tpl\d0.html" />
+    <Content Include="tpl\directory.html" />
+    <Content Include="tpl\disclaimer.html" />
+    <Content Include="tpl\docs.html" />
+    <Content Include="tpl\feedback.html" />
+    <Content Include="tpl\firmdetails.html" />
+    <Content Include="tpl\form_report.html" />
+    <Content Include="tpl\getlawyer.html" />
+    <Content Include="tpl\invoice.html" />
+    <Content Include="tpl\latest.html" />
+    <Content Include="tpl\latest.report.html" />
+    <Content Include="tpl\lawsuit.html" />
+    <Content Include="tpl\layout.html" />
+    <Content Include="tpl\material\button.html" />
+    <Content Include="tpl\material\card.html" />
+    <Content Include="tpl\material\color.html" />
+    <Content Include="tpl\material\dialog.tmpl.html" />
+    <Content Include="tpl\material\form.html" />
+    <Content Include="tpl\material\icon.html" />
+    <Content Include="tpl\material\list.html" />
+    <Content Include="tpl\material\ngmaterial.html" />
+    <Content Include="tpl\material\toast.tmpl.html" />
+    <Content Include="tpl\modal.html" />
+    <Content Include="tpl\needalawyer.html" />
+    <Content Include="tpl\page_404.html" />
+    <Content Include="tpl\page_forgotpwd.html" />
+    <Content Include="tpl\page_signin.html" />
+    <Content Include="tpl\payment.html" />
+    <Content Include="tpl\privacy.html" />
+    <Content Include="tpl\process.html" />
+    <Content Include="tpl\profile.html" />
+    <Content Include="tpl\psuccess.html" />
+    <Content Include="tpl\rebuttal.html" />
+    <Content Include="tpl\registerhub.html" />
+    <Content Include="tpl\reportBug.html" />
+    <Content Include="tpl\reportsuccess.html" />
+    <Content Include="tpl\report_detail.html" />
+    <Content Include="tpl\resetPassword.html" />
+    <Content Include="tpl\resetSuccess.html" />
+    <Content Include="tpl\ripoff.html" />
+    <Content Include="tpl\searchview.html" />
+    <Content Include="tpl\search\bootstrap.js" />
+    <Content Include="tpl\search\bootstrap.min.css" />
+    <Content Include="tpl\search\font-awesome.css" />
+    <Content Include="tpl\search\jquery.js" />
+    <Content Include="tpl\search\jquery.nanoscroller.min.js" />
+    <Content Include="tpl\search\nanoscroller.css" />
+    <Content Include="tpl\search\pace.min.js" />
+    <Content Include="tpl\search\scripts.js" />
+    <Content Include="tpl\search\search.html" />
+    <Content Include="tpl\search\theme_styles.css" />
+    <Content Include="tpl\signup.html" />
+    <Content Include="tpl\thankYou.html" />
+    <Content Include="tpl\tou.html" />
+    <Content Include="tpl\update.html" />
+    <Content Include="tpl\updatesuccess.html" />
+    <Content Include="tpl\ureports.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\Material-Design-Icons.eot" />
+    <Content Include="fonts\Material-Design-Icons.ttf" />
+    <Content Include="fonts\Material-Design-Icons.woff" />
+    <Content Include="fonts\sourcesanspro\sourcesanspro-bold.woff" />
+    <Content Include="fonts\sourcesanspro\sourcesanspro-light.woff" />
+    <Content Include="fonts\sourcesanspro\sourcesanspro.woff" />
+    <Content Include="psd\ui.zip" />
+    <Content Include="api\datatable.json" />
+    <Content Include="api\groups" />
+    <Content Include="api\login" />
+    <Content Include="api\saveUser" />
+    <Content Include="api\signup" />
+    <Content Include="css\less\app.arrow.less" />
+    <Content Include="css\less\app.butterbar.less" />
+    <Content Include="css\less\app.buttons.less" />
+    <Content Include="css\less\app.colors.less" />
+    <Content Include="css\less\app.components.less" />
+    <Content Include="css\less\app.item.less" />
+    <Content Include="css\less\app.layout.boxed.less" />
+    <Content Include="css\less\app.layout.less" />
+    <Content Include="css\less\app.less" />
+    <Content Include="css\less\app.mixins.less" />
+    <Content Include="css\less\app.nav.dock.less" />
+    <Content Include="css\less\app.nav.less" />
+    <Content Include="css\less\app.nav.offscreen.less" />
+    <Content Include="css\less\app.ng.less" />
+    <Content Include="css\less\app.plugin.less" />
+    <Content Include="css\less\app.reset.less" />
+    <Content Include="css\less\app.utilities.less" />
+    <Content Include="css\less\app.variables.less" />
+    <Content Include="css\less\app.widgets.less" />
+    <Content Include="css\less\md.base.less" />
+    <Content Include="css\less\md.btn.less" />
+    <Content Include="css\less\md.card.less" />
+    <Content Include="css\less\md.check.less" />
+    <Content Include="css\less\md.color.less" />
+    <Content Include="css\less\md.icon.less" />
+    <Content Include="css\less\md.input.less" />
+    <Content Include="css\less\md.layout.less" />
+    <Content Include="css\less\md.less" />
+    <Content Include="css\less\md.list.less" />
+    <Content Include="css\less\md.switch.less" />
+    <Content Include="css\less\md.variables.less" />
+    <Content Include="css\less\md.whiteframe.less" />
+    <Content Include="js\app\mail\mails.json" />
+    <Content Include="js\app\note\notes.json" />
+    <Content Include="js\controllers\largeLoad.json" />
+    <Content Include="js\controllers\upload.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Album\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="js\controllers\uploads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>44666</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/ripoffnigeriaonline</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

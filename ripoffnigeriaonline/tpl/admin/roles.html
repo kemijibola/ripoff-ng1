@@ -1,0 +1,77 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Role Management</h1>
+</div>
+<div class="wrapper-md">
+    <div>
+        <div class="row">
+            <div class="col-sm-6">
+                <form name="roleform" class="form-validation">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <span class="h4">Create Role</span>
+                        </div>
+                        <div class="panel-body">
+                            <p class="text-muted">Please fill the information to continue</p>
+                            <div class="form-group">
+                                <label>Name <em class="text-muted">(complete Role name)</em></label>
+                                <input type="text" ng-model="name" name="rolename" class="form-control" ng-pattern="/^[a-zA-Z]{0,30}$/" required>
+                            </div>
+                            <div class="form-group has-error" ng-messages="roleform.rolename.$error" ng-if="roleform.$submitted || roleform.rolename.$touched">
+                                <div class="help-block" ng-message="pattern"><p class="icon-remove-sign">This field cannot accept numbers</p></div>
+                                <div class="help-block" ng-message="required"><p class="icon-remove-sign">Field is required</p></div>
+                            </div>
+                        </div>
+                        
+                        <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+                            {{message}}
+                        </div>
+                        <footer class="panel-footer text-right bg-light lter">
+                            <span us-spinner="{radius:30, width:8, length: 16}"></span>
+                            <button type="submit" class="btn btn-success" ng-disabled="roleform.$invalid" data-ng-click="saveHubRole()">Add Role</button>
+                        </footer>
+                        <!--<footer class="panel-footer text-right bg-light lter">
+                            <button type="submit" class="btn btn-success" ng-disabled="roleform.$invalid" data-ng-click="saveHubRole()" ui-toggle-class="show inline" target="#spin">
+                                <span class="text">Add Role</span>
+                                <span class="text-active"><i class="fa fa-spin fa-spinner hide" id="spin"></i> Please wait</span>
+                            </button>
+                        </footer>-->
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="h4">AdminHub Roles</span>
+                    </div>
+                    <div class="panel-body b-b b-light">
+                        Search: <input id="filter" type="text" class="form-control input-sm w-sm inline m-r" />
+                    </div>
+                    <div>
+                        <table class="table m-b-none" ui-jq="footable" data-filter="#filter" data-page-size="2">
+                            <thead>
+                                <tr>
+                                    <th data-toggle="true">
+                                        Name
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="b in benefitTypes">
+                                    <td>{{b.description}}</td>
+                                    <td><input type="button" class="btn btn-info btn-sm" value="Edit" ng-click="select(b)" /></td>
+                                </tr>
+                            </tbody>
+                            <tfoot class="hide-if-no-paging">
+                                <tr>
+                                    <td colspan="5" class="text-center">
+                                        <ul class="pagination"></ul>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

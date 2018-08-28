@@ -1,0 +1,14 @@
+    <div class="modal-header">
+        <h3 class="modal-title">Write a Review for this Law firm</h3>
+        <span class="help-block m-b-none" ng-show="!authLog(false)"><small>You nust be logged in to post a review.Already have an account?Login <a ui-sref="access.signin" ng-click="cancel()">here</a> OR <a ui-sref="app.access.signup" ng-click="cancel()">REGISTER</a> to have one.</small></span>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label>Review</label>
+            <textarea class="form-control" name="rev" placeholder="Write your review here" rows="8" ng-model="newfirmReiew.review" required></textarea>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+        <button class="btn btn-primary" ng-click="saveFirmReview()">Submit Review</button>
+    </div>

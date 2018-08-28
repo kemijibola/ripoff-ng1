@@ -1,0 +1,56 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Update Settings</h1>
+</div>
+
+<div class="line"></div>
+<div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+    {{message}}
+</div>
+<div class="wrapper-md">
+    <div cg-busy="myPromise">
+        <div class="row">
+            <div class="col-sm-12">
+                <form name="userSettings" class="form-validation" novalidate>
+                    <fieldset ng-disabled="isSaving == true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <span class="h4">User Settings</span>
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="form-group col-md-12">
+                                    <div class="checkbox">
+                                        <label class="i-checks">
+                                            <input type="checkbox" id="checkbox-1" ng-model="userSettings.interestedLawyer" true-value="True" false-value="False"><i></i> Send me the contact information if a lawyer is interested in my particular case.
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="i-checks">
+                                            <input type="checkbox" id="checkbox-2" ng-model="userSettings.allAdvocate" true-value="True" false-value="False"><i></i> I am willing to be contacted by the media, a consumer advocate, lawyer or government authority to help further my cause or to help with an investigation against the business or individual I am reporting.
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="i-checks">
+                                            <input type="checkbox" id="checkbox-3" ng-model="userSettings.commentonmyReport" true-value="True" false-value="False"><i></i> Notify me when someone files a rebuttal or consumer comment to my report.(If multiple rebuttals are made in one day you will receive multiple e-mails)
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="i-checks">
+                                            <input type="checkbox" id="checkbox-4" ng-model="userSettings.commentonmyRebuttal" true-value="True" false-value="False"><i></i> Notify me when someone files a rebuttal or consumer comment to a rebuttal I have filed on a report. (If multiple rebuttals are made in one day you will receive multiple e-mails)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-success" type="submit" ng-click="updateUserAccount()" ui-toggle-class="show inline" target="#spin">
+                                        <span class="text">Update</span>
+                                        <span class="text-active">Update</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<!-- list -->
+<ul class="nav" ng-controller="adminNavController">
+    <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+        <span>Navigation Links</span>
+    </li>
+    <li ui-sref-active="active" ng-hide="isAdmin==true">
+        <a ui-sref="app.form.report">
+            <i class=" glyphicon glyphicon-file icon text-info-dker">
+            </i>
+            <span class="font-bold">File Report</span>
+        </a>
+    </li>
+    <li ui-sref-active="active" ng-hide="isAdmin==true">
+        <a ui-sref="app.form.update">
+            <i class="glyphicon glyphicon-briefcase icon text-info-lter"></i>
+            <span class="font-bold">My Filed Reports</span>
+        </a>
+    </li>
+    <li ui-sref-active="active" ng-hide="isAdmin==true">
+        <a ui-sref="app.latest.report">
+            <i class="glyphicon glyphicon-book icon text-info-lter"></i>
+            <span class="font-bold">All Reports</span>
+        </a>
+    </li>
+    <li ui-sref-active="active" ng-hide="isAdmin==true">
+        <a ui-sref="app.mail.list">
+            <i class="glyphicon glyphicon-download icon text-info-lter"></i>
+            <span class="font-bold">Resources</span>
+        </a>
+    </li>
+    <li ui-sref-active="active" ng-hide="isAdmin==true">
+        <a ui-sref="app.needlawyer">
+            <i class="glyphicon glyphicon-search icon text-info-lter"></i>
+            <span class="font-bold">Need A Lawyer</span>
+        </a>
+    </li>
+    <li ui-sref-active="active" ng-hide="isAdmin==true">
+        <a ui-sref="app.au">
+            <i class="glyphicon glyphicon-home icon text-info-lter"></i>
+            <span class="font-bold">About Us</span>
+        </a>
+    </li>
+    <li ui-sref-active="active" >
+        <a ui-sref="app.faq" ng-hide="isAdmin==true">
+            <i class="icon-question icon"></i>
+            <span class="font-bold">Help</span>
+        </a>
+    </li>
+</ul>
+

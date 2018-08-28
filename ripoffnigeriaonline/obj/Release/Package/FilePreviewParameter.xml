@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="rip-offnigeria.com" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Workload\\Documents\\Visual\ Studio\ 2013\\Projects\\ripoffnigeriaonline\\ripoffnigeriaonline\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Workload\\Documents\\Visual\ Studio\ 2013\\Projects\\ripoffnigeriaonline\\ripoffnigeriaonline\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="RipOffContext-Web.config Connection String" description="" value="Data Source=5.10.111.112,780;Initial Catalog=kemijibola_jetherDataContext;Persist Security Info=True;User ID=kemijibola_jethertech;Password=S3cur!ty1984kemi" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Workload\\Documents\\Visual\ Studio\ 2013\\Projects\\ripoffnigeriaonline\\ripoffnigeriaonline\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='RipOffContext']/@connectionString" />
+  </parameter>
+</parameters>

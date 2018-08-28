@@ -1,0 +1,56 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Listings</h1>
+</div>
+
+
+
+<div class="hbox hbox-auto-xs hbox-auto-sm">
+    <div class="col w-md bg-light dk b-r bg-auto">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="clearfix">
+                    <div class="hbox text-center text-sm">
+                        <script type="text/ng-template" id="myModalContent.html">
+                            <div ng-include="'tpl/modal.html'"></div>
+                        </script>
+                        <a href class="col padder-v text-muted b-r b-light" ng-click="open()">
+                            <i class="icon-plus block m-b-xs fa-2x"></i>
+                            <span>Review Firm</span>
+                        </a>
+                        <!--ng-show="hasLiked==false"-->
+                        <a class="col padder-v text-muted b-r b-light" ui-toggle-class="button" ng-show="hasLiked==false" ng-click="update()">
+                            <span class=" text">
+                                <i class="icon-like block m-b-xs fa-2x"></i> Like Firm
+                            </span>
+                        </a>
+                        <a href="http://www.{{lawfirmDetails.ripOffFirm.website}}" class="col padder-v text-muted">
+                            <i class="icon-link block m-b-xs fa-2x"></i>
+                            <span>Website</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="list-group no-radius alt">
+                <a class="list-group-item" href>
+                    <span class="badge bg-light">{{like}}</span>
+                    <i class="fa fa-thumbs-up fa-fw text-muted"></i>
+                    Likes
+                </a>
+            </div>
+            <div class="list-group no-radius alt">
+                <a class="list-group-item" href>
+                    <span class="badge bg-light">{{lawfirmDetails[0].ripOffFirm.profileView}}</span>
+                    <i class="fa fa-eye fa-fw text-muted"></i>
+                    Page visits
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="col">
+        <div ui-view></div>
+    </div>
+</div>

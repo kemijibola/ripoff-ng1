@@ -1,0 +1,30 @@
+﻿<div class="bg-light lter b-b wrapper-md hidden-print">
+    <h1 class="m-n font-thin h3">Payment</h1>
+</div>
+<div class="wrapper-md" ng-controller="processPaymentCtrl">
+    <div>
+        <div class="well m-t bg-light lt col-xs-12 center text-center">
+            <p>
+                You are about to initiate meeting with a legal personnel.If you would like to continue,click below button
+            </p>
+            <form method=post action="https://simplepay4u.com/process.php">
+                <input type=hidden name=member value="kemijibola@yahoo.com" />
+                <input type=hidden name=escrow value="N" />
+                <input type=hidden name=action value="payment" />
+                <input type=hidden name=product value="LFirmContact" />
+                <input type=hidden name=price value="1000" />
+                <input type=hidden name=quantity value="1" />
+                <input type=hidden name=ureturn value="--RETURN-URL--" />
+                <input type=hidden name=unotify value="--NOTIFY-URL--" />
+                <input type=hidden name=ucancel value="--CANCEL-URL--" />
+                <input type=hidden name=comments value="Payment Received for Legal Service" />
+                <input type=hidden name=customid value="userId" />
+                <input type=hidden name=freeclient value="Y" />
+                <input type=hidden name=nocards value="N" />
+                <input type=hidden name=giftcards value="N" />
+                <input type=hidden name=site_logo value="img/rip_new-100.png" />
+                <input type=image src="img/button.png" />
+            </form>
+        </div>
+    </div>
+</div>

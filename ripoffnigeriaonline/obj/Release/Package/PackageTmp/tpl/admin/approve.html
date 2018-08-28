@@ -1,0 +1,52 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Approve/Deny</h1>
+</div>
+
+
+<div class="wrapper-md" cg-busy="myPromise">
+    <div class="col-sm-9">
+        <div class="panel panel-danger">
+            <div class="panel-heading font-bold">Report #:<small>{{reportDetails[0].report.id}}</small></div>
+            <div class="panel-body">
+                <div class="m-b m-t-none">
+                    <p>{{reportDetails[0].report.dateCreated|fromNow}}</p>
+                   {{reportDetails[0].report.reportText | htmlToPlaintext}}
+                </div>
+                
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="i-checks">
+                            <input type="radio" ng-model="radio.option" ng-value="true">
+                            <i></i>
+                            Approve
+                        </label>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="i-checks">
+                            <input type="radio" ng-model="radio.option" ng-value="false">
+                            <i></i>
+                            Deny
+                        </label>
+                    </div>
+                    <!--<div class="radio form-group col-md-6">
+                        <label class="i-checks">
+                            <input type="radio" name="a" value="option1">
+                            <i></i>
+                            Approve
+                        </label>
+                    </div>
+                    <div class="radio form-group col-md-6">
+                        <label class="i-checks">
+                            <input type="radio" name="a" value="option1">
+                            <i></i>
+                            Deny
+                        </label>
+                    </div>-->
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+

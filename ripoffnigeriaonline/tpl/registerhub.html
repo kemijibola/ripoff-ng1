@@ -1,0 +1,277 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">File Report</h1>
+</div>
+<div class="wrapper-md" ng-controller="FormReportCtrl" cg-busy="myPromise">
+    <tabset class="tab-container" ng-init="steps={percent:20, step1:true, step2:false,step3:false,step4:false,step5:false}">
+
+        <tab heading="Individual or Company" active="steps.step1" select="steps.percent=10">
+            <!--<p class="m-b">You are one step ahead</p>-->
+            <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+            <h4>Company or Individual you are reporting</h4>
+            <div class="line line-lg b-b b-light"></div>
+            <!--<div class="line line-dashed b-b line-lg pull-in"></div>-->
+            <form name="step1" class="form-validation" novalidate>
+                <div class="panel-body">
+                    <i class="text-muted">Please note that:</i>
+                    <p class="text-muted">The information YOU ARE to provide in this step is about the Company or Individual you are reporting. YOU ARE NOT reporting your personal information here.</p>
+                    <p class="text-muted">You are to include the address of Company or Individual you are reporting. If the Company or Individual is only on the Internet, or you don't have a physical address, you MAY enter their Web address. Fields can be left blank but providing this information may also be helpful to other victims reading your Ripoff Report. </p>
+                    <p class="text-danger">All fields marked * required </p>
+
+                    <div class="line line-lg b-b b-light"></div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <b class="text-danger">*</b>
+                            <label>Name of Company or Individual you are reporting</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input type="text" class="form-control" name="name" ng-model="newReport.company" required ng-change="step1.name.$valid ? (steps.percent=30) : (steps.percent=20)">
+                            </div>
+                            <div class="form-group has-error" ng-messages="step1.name.$error" ng-if="step1.$submitted || step1.name.$touched">
+                                <div class="help-block" ng-message="required">Enter Name of Company or Individual you are reporting</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Web address of the Company or Individual on the Internet (Optional)</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                <input type="url" name="url" placeholder="http://" class="form-control" ng-model="newReport.website">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Additional names (Alias's)</label>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="6" name="alias" placeholder="Optional" ng-model=" newReport.alias"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <b class="text-danger">*</b>
+                            <label>Choose the location of the Company or Individual</label>
+                            <div class="radio" ng-repeat="location in locations">
+                                <label class="i-checks">
+                                    <input type="radio" name="location" ng-value="location.id" ng-checked="getRadioButtonToCheck(location.id,newReport.locationTypeId)" ng-model="newReport.locationTypeId" ng-options="item.id as item.name for item in locations" required>
+                                    <i></i>
+                                    {{location.name}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>Street Address of the Company or Individual</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                                <input type="text" class="form-control" name="address" placeholder="Optional" ng-model="newReport.street">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>Telephone of the Company or Individual</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <input type="text" class="form-control" name="tel" placeholder="Optional" ng-model="newReport.phoneNumber" ng-pattern="/^[0-9]+$/" maxlength="15">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Fax</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-fax"></i></span>
+                                <input type="text" class="form-control" name="fax" placeholder="Optional" ng-model="newReport.fax" maxlength="15">
+                            </div>
+
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Email</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input type="email" class="form-control" name="email" placeholder="Optional" ng-model=" newreport.email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <b class="text-danger">*</b>
+                            <label>State</label>
+                            <div>
+                                <select class="form-control m-b" name="state" ng-model="newReport.stateId" ng-init="stateId=states[0]" ng-options="item.id as item.name for item in states" data-ng-change="getCityByState(item.id)" required>
+                                    <option value="" selected="" disabled="">State</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <b class="text-danger">*</b>
+                            <label>City</label>
+                            <div>
+                                <select class="form-control m-b" name="city" ng-model="newReport.cityId" ng-init="cityId=cities[0]" ng-options="item.id as item.name for item in cities" required>
+                                    <option value="" selected="" disabled="">City</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-t m-b">
+                        <button type="submit" class="btn btn-success btn-rounded" ng-disabled="step1.$invalid" ng-click="steps.step2=true">Continue</button>
+                    </div>
+                </div>
+            </form>
+        </tab>
+        <tab heading="Report Topic and Category" disabled="step1.$invalid" active="steps.step2" select="steps.percent=30">
+            <form name="step2" class="form-validation" novalidate>
+                <p class="m-b">Continue the next step</p>
+                <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+                <h4>Report Title and Category</h4>
+                <div class="line line-lg b-b b-light"></div>
+                <div class="panel-body">
+                    <i class="text-muted">Please note that:</i>
+                    <p class="text-muted">You are to provide the Report Title and Category in this step.</p>
+                    <p class="text-danger">All fields marked * required </p>
+
+                    <div class="line line-lg b-b b-light"></div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <b class="text-danger">*</b>
+                            <label>Topic</label>
+                            <div>
+                                <select class="form-control m-b" name="topic" ng-model="newReport.topicId" ng-options="item.id as item.name for item in topics" data-ng-change="getCategoryByTopic(item.id)" required>
+                                    <option value="" selected="" disabled="">Topic</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <b class="text-danger">*</b>
+                            <label>Category</label>
+                            <div>
+                                <select class="form-control m-b" name="category" ng-model="newReport.categoryId" ng-options="item.id as item.name for item in categories" required>
+                                    <option value="" selected="" disabled="">Category</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-t m-b">
+                        <button type="button" class="btn btn-success btn-rounded" ng-click="steps.step1=true">Previous</button>
+                        <button type="submit" ng-disabled="step2.$invalid" class="btn btn-success btn-rounded" ng-click="steps.step3=true">Continue</button>
+                    </div>
+                </div>
+            </form>
+        </tab>
+        <tab heading="Additional Information" disabled="step2.$invalid" active="steps.step3" select="steps.percent=50">
+            <form name="step3" class="form-validation" novalidate>
+                <p class="m-b">Continue the next step</p>
+                <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+                <h4>Write your report</h4>
+                <div class="line line-lg b-b b-light"></div>
+                <div class="panel-body">
+                    <i class="text-muted">Please note that:</i>
+                    <p class="text-muted">This step gives more information about the type of transaction.</p>
+                    <p class="text-danger">All fields marked * required </p>
+
+                    <div class="line line-lg b-b b-light"></div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <b class="text-danger">*</b>
+                            <label>Did you use Credit Card for this Transaction?</label>
+                            <div class="radio">
+                                <label class="i-checks">
+                                    <input type="radio" name="card" id="card" value="True" ng-model="newReport.creditCard" required>
+                                    <i></i>
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label class="i-checks">
+                                    <input type="radio" name="card" id="card" value="False" ng-model="newReport.creditCard" required>
+                                    <i></i>
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <b class="text-danger">*</b>
+                            <label>Was it an Online Transaction?</label>
+                            <div class="radio">
+                                <label class="i-checks">
+                                    <input type="radio" name="online" id="online" value="True" ng-model="newReport.onlineTransaction" required>
+                                    <i></i>
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label class="i-checks">
+                                    <input type="radio" name="online" id="online" value="False" ng-model="newReport.onlineTransaction" required>
+                                    <i></i>
+                                    No
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="m-t m-b">
+                    <button type="button" class="btn btn-success btn-rounded" ng-click="steps.step2=true">Previous</button>
+                    <button type="submit" ng-disabled="step3.$invalid" class="btn btn-success btn-rounded" ng-click="steps.step4=true">Continue</button>
+                </div>
+            </form>
+        </tab>
+        <tab heading="Write your Report" disabled="step3.$invalid" active="steps.step4" select="steps.percent=70">
+            <form name="step4" class="form-validation" novalidate>
+                <p class="m-b">Continue the next step</p>
+                <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+                <h4>Write your report</h4>
+                <div class="line line-lg b-b b-light"></div>
+                <div class="panel-body">
+                    <i class="text-muted">Please note that:</i>
+                    <p class="text-muted">Use this step to express your ordeal.Please try as much as possible to write a simple but detailed Report.</p>
+                    <p class="text-danger">All fields marked * required </p>
+                    <div class="line line-lg b-b b-light"></div>
+                    <div class="row">
+                        <b class="text-danger">*</b>
+                        <label>Write your Report</label>
+                        <div class="col-sm-12">
+                            <div class="wrapper-md">
+                                <div lazy-load="textAngular">
+                                    <div text-angular ng-model="newReport.reportText" class="btn-groups" required></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="m-t m-b">
+                    <button type="button" class="btn btn-success btn-rounded" ng-click="steps.step3=true">Previous</button>
+                    <button type="submit" ng-disabled="step4.$invalid" class="btn btn-success btn-rounded" ng-click="steps.step5=true">Continue</button>
+                </div>
+            </form>
+        </tab>
+
+        <tab heading="Upload Image/Submit Report" disabled="step4.$invalid" active="steps.step5" select="steps.percent=90">
+            <div class="hbox hbox-auto-xs hbox-auto-sm">
+                <form name="step5" class="form-validation" novalidate>
+                    <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+                    <div class="line line-lg b-b b-light"></div>
+
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="checkbox">
+                                <label class="i-checks">
+                                    <input type="checkbox" name="subscription2" id="subscription2" ng-model="newReport.contactbyMedia" true-value="True" false-value="False">
+                                    <i></i>
+                                    I am willing to be contacted by the media, a consumer advocate, lawyer or government authority to help further my cause or to help with an investigation against the business or individual I am reporting.I am willing to be contacted by the media, a consumer advocate, lawyer or government authority to help further my cause or to help with an investigation against the business or individual I am reporting.
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div data-ng-include=" 'Photo/photos.html' ">
+                    </div>
+
+                </form>
+            </div>
+        </tab>
+    </tabset>
+</div>

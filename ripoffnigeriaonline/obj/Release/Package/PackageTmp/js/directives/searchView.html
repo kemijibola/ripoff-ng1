@@ -1,0 +1,51 @@
+﻿<form name="searchForm">
+    <div class="row-fluid">
+        <div class="widget ash">
+            <div class="widget-head">
+                <label class="" for="name">Student Search:</label>
+                <input type="text" class="span3" id="name" name="name" data-ng-model="searchName" ng-model-options="{ debounce:10000 }" ng-keyup="cancel($event)" />
+                <select id="session" class="span2" name="session" data-ng-change="selectedSessionFunc({session:selectedSession})" data-ng-model="selectedSession" data-ng-options="item as item.name for item in sessions" required>
+                    <option value="">---Select Session---</option>
+                </select>
+                <label class="" for="paycode">Pay Code:</label>
+                <input type="text" class="span2" id="paycode" money min="0" max="100000000" precision="-1" name="paycode" ng-model="searchPay" data-ng-change="searchPayChange(searchPay)" />
+                <label class="" for="MatricNo">Matric No:</label>
+                <input type="text" class="span2" id="MatricNo" name="MatricNo" ng-model="searchMatric" data-ng-change="searchMatricChange(searchMatric)" />
+            </div>
+        </div>
+
+
+
+
+
+        <div class="widget wblue">
+            <div class="widget-content user">
+                <table at-table at-paginated at-config="config" at-list="searchResults" class="table table-condensed data-table">
+                    <!--<thead></thead>-->
+                    <tbody>
+                        <tr class="data-row" ng-click="selectedPayFunc({paycode:item}); setSelected(item)" ng-class="{selected: item.id === selectedItemId}">
+                            <td at-title="Pay Code" at-implicit at-attribute="id"></td>
+                            <td at-title="LastName" at-implicit at-attribute="lastName"></td>
+                            <td at-title="FirstName" at-implicit at-attribute="firstName"></td>
+                            <td at-title="Department" at-implicit at-attribute="department"></td>
+                            <td at-title="ProgramType" at-implicit at-attribute="programType"></td>
+                            <td at-title="Matric No" at-implicit at-attribute="matricNo"></td>
+                            <td at-title="Session" at-implicit at-attribute="sessionName"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <at-pagination class="" at-list="searchResults" at-config="config"></at-pagination>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+</form>

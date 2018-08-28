@@ -1,0 +1,52 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Lawyer Directory</h1>
+</div>
+<div cg-busy="myPromise">
+    <div>
+        <!-- header -->
+        <div class="wrapper bg-light lter b-b">
+            <!--<div class="btn-group pull-right">
+
+                <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="js/directives/dirPagination.tpl.html"></dir-pagination-controls>
+            </div>-->
+            <div class="btn-toolbar">
+                <div class="btn-group dropdown">
+                    <a class="btn btn-default btn-sm btn-bg" ui-sref=" app.lawfirm.directory({label:''})">View all categories</a>
+
+                </div>
+            </div>
+        </div>
+        <!-- / header -->
+        <!-- list -->
+        <ul class="list-group list-group-lg no-radius m-b-none m-t-n-xxs">
+            <li ng-repeat="ripofffirm in lawbyfirmcategories | filter:label" ng-class="labelClass(ripofffirm.lawType.label)" class="list-group-item clearfix b-l-3x">
+                <!--<li dir-paginate="ripofffirm in lawbyfirmcategories | filter:label | itemsPerPage: pageSize" current-page="currentPage" ng-class="labelClass(ripofffirm.lawType.label)" class="list-group-item clearfix b-l-3x">-->
+                <a ui-sref="app.page.profile" class="avatar thumb pull-left m-r">
+                    <img ng-src="">
+                </a>
+                <div class="pull-right text-sm text-muted">
+                    <span class="hidden-xs">{{ ripofffirm.ripOffFirm.firmName}}</span>
+
+
+                    <!--<i class="fa fa-paperclip ng-hide m-l-sm" ng-show="{{mail.attach}}"></i>-->
+                </div>
+                <div class="clear">
+                    <div><span class="text-md">{{ripofffirm.ripOffFirm.firmHeader | limitTo: 50}}</span><span class="label bg-light m-l-sm">{{ripofffirm.lawType.name}}</span></div>
+                    <div class="text-ellipsis m-t-xs">{{ripofffirm.ripOffFirm.firmDescription | limitTo:50}}</div>
+                    <a ui-sref="details({lawfirmId:ripofffirm.ripOffFirm.id})" class="btn btn-xs btn-success m-t-xs">Read more</a>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    </div>
+    <!--<div class="btn-group">
+        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="js/directives/dirPagination.tpl.html"></dir-pagination-controls>
+    </div>-->
+
+
+
+
+
+
+

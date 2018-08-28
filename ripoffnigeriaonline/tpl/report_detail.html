@@ -1,0 +1,207 @@
+﻿<div cg-busy="myPromise">
+    <div class="hbox hbox-auto-xs hbox-auto-sm">
+        <div class="col b-l bg-auto">
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <div class="clearfix">
+                        <span class="m-b-xs h2 block">
+                           <b class="text-danger">Complaint Review:</b> <b class="h2 m-t-xs m-b-xs">{{reportDetails[0].report.company}}</b>
+                        </span>
+                        <div class="clear">
+
+                            <small class="text-muted">Report#: {{reportDetails[0].report.id}}</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group no-radius alt">
+
+                    <div class="panel hbox hbox-auto-xs no-border ">
+
+
+                        <div class="col wrapper">
+                            <div class="clearfix">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <p class="m-t m-b">
+                                            <i class="fa fa-trello"></i> &nbsp; <strong>Posted on:</strong> {{reportDetails[0].report.dateCreated |date:'longDate'}} &nbsp;{{reportDetails[0].report.dateCreated |date:' h : mm a'}}<br>
+                                            <i class="fa fa-trello"></i> &nbsp; <strong>Reported by:</strong> {{reportDetails[0].userName}}<br>
+                                            <i class="fa fa-trello"></i> &nbsp; <strong>Location:</strong> {{reportDetails[0].report.locationType.name}}
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p class="m-t m-b">
+                                            <i class="fa fa-trello"></i> &nbsp; <strong>Category:</strong> {{reportDetails[0].report.category.name}}<br>
+                                            <span><strong>{{reportDetails[0].report.company}}</strong><br></span>
+                                            <span ng-show="reportDetails[0].report.street">{{reportDetails[0].report.street}}<br></span>
+                                            <span ng-show="reportDetails[0].report.city.name">{{reportDetails[0].report.city.name}}, {{reportDetails[0].report.state.name}}<br></span>
+                                            <span ng-show="reportDetails[0].report.email">{{reportDetails[0].report.email}}<br></span>
+                                            <span ng-show="reportDetails[0].report.phoneNo">{{reportDetails[0].report.phoneNo}}<br></span>
+                                         </p>
+
+                                    </div>
+                                </div>
+                                <p class="m-b m-t-none b-a b-2x b-dashed wrapper-lg lter">
+                                    <strong>{{reportDetails[0].report.reportText | htmlToPlaintext}}</strong>
+                                </p>
+                            </div>
+                            <!--<span class="m-b block text-sm text-muted">Add social Media share later</span>-->
+
+                            <div class="clearfix" ng-show="reportDetails[0].report.reportImages[0].imagePath">
+                                <div class="panel-heading panel hbox animated streamline b-l">
+                                    <div class="clearfix">
+                                        <span class="m-b-xs h4 block">
+                                            <b ng-show="isreportGreaterThanOne==false" class="text-danger">Attachment for this Report</b>
+                                            <b ng-show="isreportGreaterThanOne==true" class="text-danger">Attachments for this Report</b>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="wrapper" ng-repeat="image in reportDetails[0].report.reportImages">
+                                    <div class="panel b-a inline m-r-sm m-b-sm bg-light row">
+                                        <div class="wrapper-xs b-b"><i class="fa fa-paperclip"></i> {{image.imagePath}}</div>
+                                        <div class="wrapper-xs w-sm lt">
+                                            <a ng-href="Album/{{image.imagePath}}"><img ng-src="Album/{{image.imagePath}}" class="img-full"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix" ng-show="reportDetails[0].report.rebuttals[0].rebuttalText">
+
+                                <div class="panel-heading panel hbox animated streamline b-l">
+                                    <div class="clearfix">
+                                        <span class="m-b-xs h4 block">
+                                            <b ng-show="isreportGreaterThanOne==false" class="text-danger">Update/Rebuttal</b>
+                                            <b ng-show="isreportGreaterThanOne==true" class="text-danger">Updates/Rebuttals</b>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix" ng-repeat="rebuttal in reportDetails[0].report.rebuttals">
+                                    <div class="clear">
+                                        <b class="text-danger">TITLE:</b> <b class="m-t-xs m-b-xs">{{rebuttal.title}}</b>
+                                        <div class="">
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <p class="m-t m-b">
+                                                        <i class="fa fa-trello"></i> &nbsp; <strong>Company Name:</strong> {{reportDetails[0].report.company}}<br>
+                                                        <span>{{rebuttal.address}}<br></span>
+                                                        <span>{{rebuttal.state.cities[0].name}}, {{rebuttal.state.name}}<br></span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <p class="m-t m-b">
+                                                        <i class="fa fa-trello"></i> &nbsp; <strong>Updated By:</strong> {{rebuttalUserName}}<br>
+                                                        <i class="fa fa-trello"></i> &nbsp; <strong>Posted On:</strong> {{rebuttal.createdDate | date:'longDate'}}<br>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <p class="m-b m-t-none b-a b-2x b-dashed wrapper-lg lter">
+                                            <strong>{{rebuttal.rebuttalText | htmlToPlaintext}}</strong>
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            
+                        </div>
+                        <div class="col wrapper-lg w-lg bg-white dk r-r">
+                            <div class="" ng-show="reportDetails[0].report.caseUpdates[0].update">
+                                <p class="text-black">The complainant has seeked redress. Want to follow the legal proceedings for this report ?</p>
+
+                                <a ui-sref="app.lawsuit({reportId:reportDetails[0].report.id})" class="btn btn-dark font-bold m blink_me"><i class="fa fa-legal"></i> Follow Legal Proceeding <i class="fa fa-legal"></i></a>
+                                <div class="panel b-a">
+                                    <div class="b-b b-light"></div>
+                                </div>
+                            </div>
+ 
+                            <div class="b-a b-2x box-shadow wrapper-lg lter text-center">
+
+                                <span class="h4 block font-bold">I had similar experience</span>
+
+                                <a ui-sref="app.form.report" class=" btn btn-danger font-bold m" tooltip="Are you also a victim of the same individual/company? Want justice ? File Report, share your experience and educate other consumers.">File report</a>
+
+                                <span class="h4 block font-bold">I have a contradiction</span>
+
+                                <a ui-sref="app.form.rebuttal({reportId:reportDetails[0].report.id})" class="btn btn-warning font-bold m" tooltip="The report filed is against you? Set records straight,consumers want to see how businesses take care of business.">Add Rebuttal</a>
+
+                            </div>
+
+                            <div class="row">
+                                    
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col w-lg bg-light lter b-l bg-auto">
+            <div class="wrapper">
+                <!--<div class="">
+                    <h4 class="text-black center text-lg">Our In House Solicitors</h4>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class=" m-b">
+                                <div class="m-b">
+                                    <img src="img/full_chronicles.jpg" class="b b-a wrapper-xs bg-white img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-12">
+                        <div class=" m-b">
+                            <div class="m-b">
+                                <img src="img/logo_adeyemo.jpg" class="b b-a wrapper-xs bg-white img-responsive">
+                            </div>
+                        </div>
+                    </div>
+                   </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .blink_me {
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    
+    -moz-animation-name: blinker;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+    
+    animation-name: blinker;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@-moz-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+ </style>

@@ -1,0 +1,72 @@
+﻿<div class="wrapper-md">
+    <!--<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':false}"></toaster-container>-->
+    <div>
+        <div class="row">
+            <div class="col-sm-12">
+                <form name="clientForm" class="form-validation" novalidate>
+                    <fieldset ng-disabled="isSaving == true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <span class="h4">Add Client</span>
+                            </div>
+                            <div class="panel-body">
+                                
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <b class="text-danger">*</b>
+                                        <label>Name</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="id" ng-model="client.id"  required>
+                                        </div>
+                                        <div class="form-group has-error" ng-messages="clientForm.id.$error" ng-if="clientForm.id.$dirty || clientForm.id.$touched || clientForm.id.$submitted">
+                                            <div class="help-block" ng-message="required"><p class="icon-remove-sign">Client name required</p></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <b class="text-danger">*</b>
+                                        <label>Secret</label>
+                                        <div class="input-group controls">
+                                            <input type="password" class="form-control" ng-model="client.secret" placeholder="Secret" required name="secret">
+                                        </div>
+                                        <div class="form-group has-error" ng-messages="clientForm.secret.$error" ng-if="clientForm.$submitted || clientForm.secret.$touched">
+                                            <div class="help-block" ng-message="required">Password field cannot be empty</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <b class="text-danger">*</b>
+                                        <label>Name</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="name" ng-model="client.name" required>
+                                        </div>
+                                        <div class="form-group has-error" ng-messages="clientForm.id.$error" ng-if="clientForm.name.$dirty || clientForm.name.$touched || clientForm.name.$submitted">
+                                            <div class="help-block" ng-message="required"><p class="icon-remove-sign">Name is required</p></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <b class="text-danger">*</b>
+                                        <label>Allowed Origin</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="origin" ng-model="client.allowedOrigin" required>
+                                        </div>
+                                        <div class="form-group has-error" ng-messages="clientForm.id.$error" ng-if="clientForm.origin.$dirty || clientForm.origin.$touched || clientForm.origin.$submitted">
+                                            <div class="help-block" ng-message="required"><p class="icon-remove-sign">Allowed origin required</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <footer class="panel-footer text-right bg-light lter">
+                                <span us-spinner="{radius:30, width:8, length: 16}"></span>
+                                <button type="submit" class="btn btn-success" ng-click="save()" ng-disabled="clientForm.$invalid">Save</button>
+                            </footer>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="css/register.css" type="text/css" />
+<!--this page specific inline scripts-->

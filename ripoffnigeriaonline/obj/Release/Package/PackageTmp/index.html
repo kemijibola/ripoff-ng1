@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title>Nigeria's Consumer Complaint Platform Website</title>
+    <meta name="description" content="rip-off Nigeria is a consumer service complaint platform focused on ensuring that companies, businesses, individuals produce and deliver goods and services." />
+    <meta name="keywords" content="consumer,goods,services,delivery,quality,compensation,redress,law,court,protection,intermediary,companies,manufacturers,retailers,consumption,legal,exploitations,complaint,report" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="libs/assets/animate.css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="libs/assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+
+    <link rel="stylesheet" href="libs/assets/simple-line-icons/css/simple-line-icons.css" type="text/css" />
+    <link rel="stylesheet" href="libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
+    <link type="image/x-icon" href="img/favicon.ico" rel="shortcut icon" />
+
+
+    <!-- build:css css/app.min.css -->
+    <link rel=”publisher” href=”https://plus.google.com/ripoffnigeria”>
+    <link rel="stylesheet" href="css/font.css" type="text/css" />
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <link rel="stylesheet" href="css/angular-busy.css" type="text/css" />
+    <link rel="stylesheet" href="css/xeditable.css" type="text/css" />
+    <link rel="stylesheet" href="libs/angular/ng-progress/ngProgress.css" type="text/css" />
+    <link rel="stylesheet" href="libs/jquery/select2/select2.css" type="text/css" />
+
+    <meta property="og:title" content="Nigeria's Consumer Complaint Platform Website">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="rip-off Nigeria is a consumer service complaint platform focused on ensuring that companies, businesses, individuals produce and deliver goods and services in accordance with consumer protection Act of 1992.">
+    <meta property="og:url" content="http://www.rip-offnigeria.com">
+    <meta property="og:image" content="http://www.rip-offnigeria/img/banner1.jpg">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ripoff_nigeria">
+    <meta name="twitter:title" content="Nigeria's Consumer Complaint Platform Website">
+    <meta name="twitter:description" content="rip-off Nigeria is a consumer service complaint platform focused on ensuring that companies, businesses, individuals produce and deliver goods and services in accordance with consumer protection Act of 1992.">
+
+
+
+    <!-- endbuild -->
+</head>
+<body ng-controller="AppCtrl">
+    <div id="fb-root"></div>
+    <script>
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=476965559161744";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
+
+    <!-- build:js js/app.angular.js -->
+    <!-- jQuery -->
+    <script src="libs/jquery/jquery/dist/jquery.js"></script>
+    <script src="libs/jquery/select2/select2.min.js"></script>
+
+    <script src="libs/jquery/pwstrength/jquery.pwstrength.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- Angular -->
+
+
+
+    <script src="libs/angular/angular/angular.js"></script>
+    <script src="libs/angular/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="libs/angular-busy/angular-busy.js"></script>
+    <script src="libs/angular/xeditable/xeditable.js"></script>
+
+    <script src="libs/angular/ng-progress/ngprogress.js"></script>
+    <script src="libs/angular/angular-animate/angular-animate.min.js"></script>
+    <script src="libs/angular/angular-aria/angular-aria.js"></script>
+    <script src="libs/angular/angular-cookies/angular-cookies.js"></script>
+    <script src="libs/angular/angular-messages/angular-messages.js"></script>
+    <script src="libs/angular/angular-resource/angular-resource.js"></script>
+    <script src="libs/angular/angular-sanitize/angular-sanitize.js"></script>
+    <script src="libs/angular/angular-touch/angular-touch.js"></script>
+    <script src="libs/angular/angular-local-storage.min.js"></script>
+    <script src="libs/jquery/uuid/angular-uuid2.js"></script>
+    <script src="libs/angular/angular-cache/angular-cache.js"></script>
+    <script src="libs/angular/angular-file-upload/angular-file-upload.js"></script>
+   
+
+    <!-- ngMaterial -->
+    <script src="libs/angular/angular-material/angular-material.js"></script>
+
+    <script src="libs/angular/ngstorage/ngStorage.js"></script>
+    <script src="libs/angular/angular-ui-utils/ui-utils.js"></script>
+
+    <!-- bootstrap -->
+    <script src="libs/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- lazyload -->
+    <script src="libs/angular/oclazyload/dist/ocLazyLoad.js"></script>
+    <!-- translate -->
+    
+    <script src="libs/angular/angular-translate/angular-translate.js"></script>
+    <script src="libs/angular/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="libs/angular/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="libs/angular/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+    <script src="libs/angular/angular-spinner/spin.min.js"></script>
+    <script src="libs/angular/angular-spinner/angular-spinner.min.js"></script>
+    <script src="libs/angular/angular-spinner/angular-loading-spinner.js"></script>
+
+
+
+    <!-- App -->
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/config.lazyload.js"></script>
+    <script src="js/config.router.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/services/ui-load.js"></script>
+    <script src="js/filters/fromNow.js"></script>
+    <script src="js/directives/setnganimate.js"></script>
+    <script src="js/directives/ui-butterbar.js"></script>
+    <script src="js/directives/ui-focus.js"></script>
+    <script src="js/directives/ui-fullscreen.js"></script>
+    <script src="js/directives/ui-jq.js"></script>
+    <script src="js/directives/ui-module.js"></script>
+    <script src="js/directives/ui-nav.js"></script>
+    <script src="js/directives/ui-scroll.js"></script>
+    <script src="js/directives/ui-shift.js"></script>
+    <script src="js/directives/ui-toggleclass.js"></script>
+    <script src="js/controllers/bootstrap.js"></script>
+    <script src="js/directives/ui-validate.js"></script>
+    <script src="js/directives/validationDirective.js"></script>
+    <script src="js/directives/dirPagination.js"></script>
+    <script src="js/directives/modalDirective.js"></script>
+    <!-- endbuild -->
+    <script src="js/services/authInterceptorService.js"></script>
+    <script src="js/services/authService.js"></script>
+    <script src="js/services/infrastructureDataService.js"></script>
+    <script src="js/services/wizardService.js"></script>
+    <script src="js/services/ripoffService.js"></script>
+    <script src="js/services/searchService.js"></script>
+    <script src="js/services/contantService.js"></script>
+    <script src="js/services/trackService.js"></script>
+    <script src="js/filters/htmlUnsafe.js"></script>
+
+    <script src="js/app/lawfirm/payment.js"></script>
+    <script src="js/admin/roles.js"></script>
+    <script src="js/admin/nav.js"></script>
+    <script src="js/admin/approval.js"></script>
+    <script src="js/app/index/ripoff.js"></script>
+    <script src="js/app/maintenance/bug.js"></script>
+    <script src="js/app/lawfirm/invoice.js"></script>
+    <script src="js/app/user/associateController.js"></script>
+    <script src="js/app/lawfirm/getLawyer.js"></script>
+    <script src="js/app/maintenance/contact.js"></script>
+    <script src="js/admin/approveReport.js"></script>
+    <script src="js/app/maintenance/feedback.js"></script>
+    <script src="js/app/report/lawsuit.js"></script>
+    <script src="js/app/user/forgotpwd.js"></script>
+    <script src="js/admin/client.js"></script>
+    <script src="js/app/lawfirm/fsearch.js"></script>
+    <script src="js/app/report/update.js"></script>
+    <script src="js/app/settings/settings.js"></script>
+    <script src="js/services/firmpreference.js"></script>
+
+    <script src="appInfo.js"></script>
+    <script src="egAppStatus.js"></script>
+    <script src="Photo/egFiles.js"></script>
+    <script src="Photo/photo.module.js"></script>
+    <script src="Photo/egPhotoUploader.js"></script>
+    <script src="Photo/egUpload.js"></script>
+    <script src="Photo/photoManager.js"></script>
+    <script src="Photo/photoManagerClient.js"></script>
+    <script src="Photo/photos.js"></script>
+
+
+
+    <!-- Lazy loading -->
+
+</body>
+</html>

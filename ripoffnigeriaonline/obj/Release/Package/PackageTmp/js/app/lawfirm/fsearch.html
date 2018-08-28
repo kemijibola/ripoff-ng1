@@ -1,0 +1,20 @@
+﻿<div class="wrapper bg-light lter b-b" ng-cloak ng-controller="fsearch">
+    <div class="btn-toolbar">
+        <form name="form" class="form-validation">
+            <label class="col-sm-2 control-label text-left">Search Directory</label>
+            <div class="col-sm-6">
+
+                <ui-select ng-model="category.Lawcategory" theme="bootstrap" required on-select="onSelected($item)">
+                    <ui-select-match placeholder="Select or search area of preference in the list...">{{$select.selected.areaOfPreference}}</ui-select-match>
+                    <ui-select-choices multiple repeat="item in lawyerPreference | filter: $select.search">
+                        <div ng-bind-html="item.areaOfPreference | highlight: $select.search"></div>
+                        <small ng-bind-html="item.generalCategory | highlight: $select.search"></small>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-success" ng-click="goToFirmSearch()">Search</button>
+            </div>
+        </form>
+    </div>
+</div>

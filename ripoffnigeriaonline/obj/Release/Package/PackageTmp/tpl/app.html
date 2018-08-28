@@ -1,0 +1,206 @@
+  <!-- navbar -->
+<div data-ng-include=" 'tpl/blocks/header.html' " class="app-header navbar">
+</div>
+<!-- / navbar -->
+<!-- menu -->
+<div data-ng-include=" 'tpl/blocks/aside.html' " class="app-aside hidden-xs {{app.settings.asideColor}}">
+</div>
+<!-- / menu -->
+<!-- content -->
+<div class="app-content">
+    <div ui-butterbar></div>
+    <a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".app-aside"></a>
+    <div class="app-content-body fade-in-up" ui-view></div>
+</div>
+
+<div id="why" class="bg-light">
+    <div class="container">
+        <div class="m-t-xxl m-b-xl text-center wrapper">
+            <h2 class="text-black font-bold"><span class="b-b b-dark">rip-off Nigeria</span> Consumer Complaints and Reviews</h2>
+            <!--<p class="text-muted h4 m-b-xl">Build the Single-Page Applications -- SPAs</p>-->
+        </div>
+        <div class="row m-t-xl m-b-xl text-center">
+            <div class="col-sm-4" data-ride="animated" data-animation="fadeInLeft" data-delay="300">
+                <p class="h3 m-b-xl inline b b-dark rounded wrapper-lg">
+                    <i class="fa w-1x fa-reply-all"></i>
+                </p>
+                
+                <div class="m-b-xl">
+                    <h4 class="m-t-none">Submit your review</h4>
+                    <p class="text-muted m-t-lg">The days of passive look and quietly going about our businesses is over. Post the truth about a poor service that would save others from falling victim.</p>
+                    <p class="m-t-xl"><a ui-sref="app.form.report" data-ride="scroll" class="btn btn-lg btn-white b-2x bg-info btn-rounded bg-empty m-sm">File Report</a></p>
+                </div>
+                
+            </div>
+            <div class="col-sm-4" data-ride="animated" data-animation="fadeInLeft" data-delay="600">
+                <p class="h3 m-b-xl inline b b-dark rounded wrapper-lg">
+                    <i class="fa w-1x fa-database"></i>
+                </p>
+                <div class="m-b-xl">
+                    <h4 class="m-t-none">Explore latest reviews</h4>
+                    <p class="text-muted m-t-lg">Are you in doubt whether to go ahead with the purchase or service? Educate yourself, read reviews from other consumers like you.</p>
+                    
+                    <p class="m-t-xl"><a ui-sref="app.latest.report" data-ride="scroll" class="btn btn-lg btn-white b-2x bg-info btn-rounded bg-empty m-sm">All Reports</a></p>
+                </div>
+                
+            </div>
+            <div class="col-sm-4" data-ride="animated" data-animation="fadeInLeft" data-delay="900">
+                <div class="center text-center w-full"><img src="img/ripoff-stamp.png"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- /content -->
+   <div class="bg-white-only">
+    <div class="container">
+        <h3 class="text-black font-bold m-b-lg">Site Sponsor</h3>
+        
+            
+            <div class="col-sm-12 wrapper-xl">
+                
+              <div class="row">
+                  
+                  <!--<div class="col-md-2">
+                      <div class="center text-center w-full"><img src="img/ripoff-stamp.png"></div>
+                  </div>-->
+                  <div class="col-md-6">
+                      <div class=" m-b">
+                          <div class="m-b">
+                              <img src="img/full_chronicles.jpg" class="b b-a wrapper-xs bg-white img-responsive">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class=" m-b">
+                          <div class="m-b">
+                              <img src="img/logo_adeyemo.jpg" class="b b-a wrapper-xs bg-white img-responsive">
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+            </div>
+
+        
+    </div>
+</div>
+
+<!--<div id="testimonial" class="bg-black dker clearfix">
+    <div class="container m-t-xxl m-b-xxl padder-v">
+        <div class="carousel auto slide clearfix" id="b-slide" data-interval="6000">
+            <ol class="carousel-indicators">
+                <li data-target="#b-slide" data-slide-to="0" class=""></li>
+                <li data-target="#b-slide" data-slide-to="1" class="active"></li>
+                <li data-target="#b-slide" data-slide-to="2" class=""></li>
+            </ol>
+            <div class="carousel-inner text-center m-t-xl m-b-xl">
+                <div class="item">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 m-b-xl">
+                            <h4 class="font-thin l-h-2x text-white m-b-lg"><em>“Vestibulum ullamcorper sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat. Phasellus at dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibul ultricies neque, quis malesuada augue. Donec eleifend condimentum.”</em></h4>
+                            <p class="text-muted">- Suzanne Oliver, Chief Learning Officer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item active">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3  m-b-xl">
+                            <h4 class="font-thin l-h-2x text-white m-b-lg"><em>"Integer eleifend, nisl venenatis consequat iaculis Duis non malesuada est, quis congue nibh. Pellentesque et netus et malesuada fames ac turpis malesuada est, quis congue nibh. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.”</em></h4>
+                            <p class="text-muted">- Leah Tate, PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3  m-b-xl">
+                            <h4 class="font-thin l-h-2x text-white m-b-lg"><em>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat. Phasellus at ultricies neque, quis malesuada augue.”</em></h4>
+                            <p class="text-muted">- Chapman, Employee Development Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#b-slide" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="right carousel-control" href="#b-slide" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+</div>-->
+<!-- footer -->
+<footer id="footer">
+    <div class="bg-info">
+        <div class="container">
+            <div class="row m-t-xl m-b-xl">
+                <div class="col-sm-6 text-white text-center">
+                    <h4 class="m-b">Are you ready to improve businesses in Nigeria?</h4>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <a ui-sref="access.signin" class="btn btn-lg btn-default btn-rounded">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white">
+        <div class="container">
+            <div class="row m-t-xl m-b-xl">
+
+                <div class="col-sm-3">
+                    <h4 class="text-u-c m-b font-thin"><span class="b-b b-dark font-bold">Find</span> Us</h4>
+                    <p class="text-sm">
+                        Executive Suite F8,<br>
+                        Super Plaza, Akerele, Surulere,<br>
+                        LAGOS STATE. <br>
+                        +234 808 0737 373
+                    </p>
+                    <p>Contact: <a class="text-info-dker btn-link" href="mailto:contact@rip-offnigeria.com">contact@rip-offnigeria.com</a></p>
+                    <p class="m-b-xl">Complaint: <a class="text-info-dker btn-link" href="mailto:reports@rip-offnigeria.com" >reports@rip-offnigeria.com</a></p>
+                </div>
+                <div class="col-sm-4">
+                    <h4 class="text-u-c m-b-xl font-thin"><span class="b-b b-dark font-bold">Follow</span> Us</h4>
+                    <div class="m-b-xl">
+                        <a href="https://facebook.com/ripoffnigeria" class="btn btn-icon btn-rounded btn-dark"><i class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/ripoff_nigeria" class="btn btn-icon btn-rounded btn-dark"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="btn btn-icon btn-rounded btn-dark"><i class="fa fa-google-plus"></i></a>
+                        <!--<a href="#" class="btn btn-icon btn-rounded btn-dark"><i class="fa fa-linkedin"></i></a>
+                        <a href="#" class="btn btn-icon btn-rounded btn-dark"><i class="fa fa-pinterest"></i></a>-->
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="fb-page" data-href="https://www.facebook.com/ripoffnigeria/" data-tabs="timeline,events,messages" data-width="380" data-height="70" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/ripoffnigeria/"><a href="https://www.facebook.com/ripoffnigeria/">Rip-Off Nigeria</a></blockquote></div></div>
+                </div>
+            </div>
+            <div class="center text-center">
+                <a href="https://www.positivessl.com" style="font-family: arial; font-size: 10px; color: #212121; text-decoration: none;"><img src="https://www.positivessl.com/images-new/PositiveSSL_tl_trans.png" alt="SSL Certificate" title="SSL Certificate" border="0" /></a>
+                <div style="font-family: arial;font-weight:bold;font-size:15px;color:#86BEE0;"><a href="https://www.positivessl.com" style="color:#86BEE0; text-decoration: none;">SSL Certificate</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-light dk">
+        <div class="container">
+            <div class="row padder-v m-t">
+                <div class="col-xs-8">
+                    <ul class="list-inline">
+                        <li><a ui-sref="app.privacy">Privacy</a></li>
+                        <li><a ui-sref="app.tou">Terms of Use</a></li>
+                        <li><a ui-sref="app.disclaimer">Legal Disclaimer</a></li>
+                        <li><a ui-sref="app.reportbug">Report a Bug</a></li>
+                        <li><a ui-sref="app.feedback">Feedback</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="col-xs-4 text-right">
+                    <span class="pull-right"><a href ui-scroll-to="app" class="m-l-sm text-muted"><i class="fa fa-long-arrow-up"></i></a></span>
+                    Copyright &copy; 2016, rip-off Nigeria. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--/ footer-->
+<div class="fb-like" data-href="https://www.facebook.com/ripoffnigeria" data-width="350 " data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+

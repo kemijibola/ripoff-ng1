@@ -1,0 +1,199 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Listings</h1>
+</div>
+
+<div class="hbox hbox-auto-xs hbox-auto-sm" >
+    <div class="col w-md bg-light dk b-r bg-auto">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="clearfix">
+                    <div class="hbox text-center text-sm">
+                        <script type="text/ng-template" id="myModalContent.html">
+                            <div ng-include="'tpl/modal.html'"></div>
+                        </script>
+                        <a href class="col padder-v text-muted b-r b-light" ng-click="open()">
+                            <i class="icon-plus block m-b-xs fa-2x"></i>
+                            <span>Review Firm</span>
+                        </a>
+                        <!--ng-show="hasLiked==false"-->
+                        <a class="col padder-v text-muted b-r b-light" ui-toggle-class="button" ng-show="hasLiked == false"  ng-click="update()">
+                            <span class=" text">
+                                <i class="icon-like block m-b-xs fa-2x"></i> Like Firm
+                            </span>
+                        </a>
+                        <a href="http://www.{{lawfirmDetails.ripOffFirm.website}}" class="col padder-v text-muted">
+                            <i class="icon-link block m-b-xs fa-2x"></i>
+                            <span>Website</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="list-group no-radius alt">
+                <a class="list-group-item" href>
+                    <span class="badge bg-light">{{lawfirmDetails[0].ripOffFirm.firmlike}}</span>
+                    <i class="fa fa-thumbs-up fa-fw text-muted"></i>
+                    Likes
+                </a>
+            </div>
+            <div class="list-group no-radius alt">
+                <a class="list-group-item" href>
+                    <span class="badge bg-light">{{lawfirmDetails[0].ripOffFirm.profileView}}</span>
+                    <i class="fa fa-eye fa-fw text-muted"></i>
+                    Page visits
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="col">
+
+        <div cg-busy="myPromise">
+            <div class="hbox hbox-auto-xs hbox-auto-sm">
+                <div class="col">
+                    <div style="background: url(img/watson.jpg) center center; background-size: cover; ">
+                        <div class="wrapper-lg bg-white-opacity">
+                            <div class="row m-t">
+                                <div class="col-sm-7">
+                                    <a href class="thumb-lg pull-left m-r">
+                                        <img src="img/a0.jpg" class="img-circle">
+                                    </a>
+                                    <div class="clear m-b">
+                                        <div class="m-b m-t-sm">
+                                            <span class="h4 text-black">{{lawfirmDetails[0].ripOffFirm.firmName}}</span>
+                                            <small class="m-l">{{lawfirmDetails[0].ripOffFirm.city | uppercase}} {{lawfirmDetails[0].ripOffFirm.country|uppercase}}</small>
+                                        </div>
+                                        <p class="m-b">
+                                            <a href="http://www.twitter.com/{{lawfirmDetails[0].ripOffFirm.twitterHandle}}" class="btn btn-sm btn-bg btn-rounded btn-default btn-icon"><i class="fa fa-twitter"></i></a>
+                                            <a href="http://www.facebook.com/{{lawfirmDetails[0].ripOffFirm.faceBookId}}" class="btn btn-sm btn-bg btn-rounded btn-default btn-icon"><i class="fa fa-facebook"></i></a>
+                                            <a href="http://www.google.com/{{lawfirmDetails[0].ripOffFirm.googleId}}" class="btn btn-sm btn-bg btn-rounded btn-default btn-icon"><i class="fa fa-google-plus"></i></a>
+                                        </p>
+                                        <a href class="btn btn-sm btn-success btn-rounded">Follow</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="pull-right pull-none-xs text-center">
+                                        <span href class="m-b-md inline m">
+                                            <span class="h3 block font-bold">{{lawfirmDetails[0].ripOffFirm.firmlike}}</span>
+                                            <span class="h3 block font-bold" ng-show="newfirm"></span>
+                                            <small>Likes</small>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrapper bg-white b-b">
+                        <!--<ul ng-repeat="lawyer in firmCategory[0]">
+                            <li class="active"><a href>{{lawyer.lawTypeCategory.name}}</a></li>
+                            <ul>
+                                <li>{{lawyer.lawCategory.name}}</li>
+                            </ul>
+                        </ul>-->
+                        <li class="line dk"></li>
+                        <tabset>
+                            <tab>
+                                <tab-heading>
+                                    Overview
+                                </tab-heading>
+                                <div class="b-b"></div>
+                                <ul class="list-group no-borders pull-in m-b-none">
+                                    <li class="list-group-item">
+                                        <p>{{lawfirmDetails[0].ripOffFirm.address}} </p>
+                                        <p>{{lawfirmDetails[0].ripOffFirm.city}} </p>
+                                        <p>{{lawfirmDetails[0].ripOffFirm.state}}, {{lawfirmDetails[0].ripOffFirm.country}} </p>
+                                        <p>{{lawfirmDetails[0].ripOffFirm.firmHeader}}</p>
+                                        <p>
+                                            <div class="text-muted">
+                                                <i class="fa fa-mobile-phone text-muted"></i><a href class="m-r-sm"> {{lawfirmDetails[0].ripOffFirm.phoneNumber}}</a>
+                                                <i class="fa fa-globe text-muted"></i><a> {{lawfirmDetails[0].ripOffFirm.website}}</a>
+                                                <a href class="m-l-sm"><i class="fa fa-envelope text-muted"></i> {{lawfirmDetails[0].ripOffFirm.email}}</a>
+                                            </div>
+                                            <!--<span class="label bg-primary pos-rlt m-r inline wrapper-xs"><i class="arrow right arrow-primary"></i> Contacts:</span> <a class="m-r-sm">Tel:{{lawfirmDetails.ripOffFirm.phoneNumber}}</a> <a>Website:{{lawfirmDetails.ripOffFirm.website}}</a>  <a>Email:{{lawfirmDetails.ripOffFirm.email}}</a>-->
+                                        </p>
+                                    </li>
+                                </ul>
+                            </tab>
+
+                            <tab>
+                                <tab-heading>
+                                    Lawyer Listing
+                                </tab-heading>
+                                <div class="b-b"></div>
+                                <div class="panel-body" ng-repeat="lawyer in lawfirmDetails[0].lawyers">
+                                    <article class="media">
+                                        <span class="pull-left thumb-sm"><img src="img/a1.jpg" alt="..." class="img-circle"></span>
+                                        <div class="media-body">
+                                            <div class="pull-right text-center text-muted">
+                                                <strong class="h4">{{lawyer.phoneNo}}</strong><br>
+                                                <small class="label bg-light">{{lawyer.city}}</small>
+                                            </div>
+                                            <a href class="h4">{{lawyer.lawyerName}}</a>
+                                            <small class="block"><a href class="">{{lawyer.street}}</a> <span class="label label-success">{{lawfirmDetails[0].ripOffFirm.firmName}}</span></small>
+                                            <div class="block m-t-sm">{{lawfirmDetails[0].ripOffFirm.firmHeader}}</div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                            </tab>
+                        </tabset>
+                    </div>
+
+                </div>
+                <div class="col w-lg bg-light lter b-l bg-auto">
+                    <div class="wrapper">
+                        <div class="">
+                            <h4 class="m-t-xs m-b-xs">Firm Lawyers</h4>
+                            <ul class="list-group no-bg no-borders pull-in" ng-repeat="lawyer in lawfirmDetails[0].lawyers">
+                                <li class="list-group-item">
+                                    <a herf class="pull-left thumb-sm avatar m-r">
+                                        <img src="img/a4.jpg" alt="..." class="img-circle">
+                                        <i class="on b-white bottom"></i>
+                                    </a>
+                                    <div class="clear">
+                                        <div><a href></a>{{lawyer.lawyerName}}</div>
+                                        <small class="text-muted">{{lawyer.city | uppercase}}, {{lawyer.state | uppercase}}</small>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="panel b-a">
+                            <h4 class="font-thin padder">Testimonials</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <p>Wellcome <a href class="text-info">@Drew Wllon</a> and play this web application template, have fun1 </p>
+                                    <small class="block text-muted"><i class="fa fa-fw fa-clock-o"></i> 2 minuts ago</small>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="panel b-light clearfix">
+                            <div class="panel-body">
+                                <a href class="thumb pull-left m-r">
+                                    <img src="img/a0.jpg" class="img-circle">
+                                </a>
+                                <div class="clear">
+                                    <ul class="list-group no-bg no-borders pull-in">
+                                        <li class="list-group-item">
+                                            <a herf class="pull-left thumb-sm avatar m-r">
+                                                <img src="img/a4.jpg" alt="..." class="img-circle">
+                                                <i class="on b-white bottom"></i>
+                                            </a>
+                                            <div class="clear">
+                                                <div><a href></a></div>
+                                                <small class="text-muted">Designer, Blogger</small>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

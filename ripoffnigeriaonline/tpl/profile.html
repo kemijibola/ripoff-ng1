@@ -1,0 +1,143 @@
+﻿
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3">User Profile</h1>
+    </div>
+
+    <div class="line"></div>
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="table table-condensed b-a" >
+                    <div class="panel-heading h3">
+                        General Account Settings
+                    </div>
+                    <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+                        {{message}}
+                    </div>
+                    <div cg-busy="myPromise">
+                        <div class="main-box-body clearfix">
+                            <div class="table-responsive">
+                                <table id="user" class="table table-hover" style="clear: both">
+                                    <tbody>
+                                        <tr>
+                                            <td width="35%">Name</td>
+                                            <td width="65%">
+                                                <span editable-text="user.name" e-form="textBtnName" e-required>
+                                                    {{ user.name || 'empty'}}
+                                                </span>
+                                                &nbsp;
+                                                &nbsp;
+                                                &nbsp;
+                                                <a class="btn btn-default" ng-click="textBtnName.$show()" ng-hide="textBtnName.$visible">
+                                                    edit
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="35%">Email</td>
+                                            <td width="65%">
+                                                <span editable-email="user.email" e-form="textBtnEmail" e-required>
+                                                    {{ user.email || 'empty' }}
+                                                </span>
+                                                &nbsp;
+                                                &nbsp;
+                                                &nbsp;
+                                                <a class="btn btn-default" ng-click="textBtnEmail.$show()" ng-hide="textBtnEmail.$visible">
+                                                    edit
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="35%">Address</td>
+                                            <td width="65%">
+                                                <span editable-text="user.address" e-form="textBtnAddres">
+                                                    {{ user.address || 'empty' }}
+                                                </span>
+                                                &nbsp;
+                                                &nbsp;
+                                                &nbsp;
+                                                <a class="btn btn-default" ng-click="textBtnAddres.$show()" ng-hide="textBtnAddres.$visible">
+                                                    edit
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="35%">Telephone</td>
+                                            <td width="65%">
+                                                <span editable-tel="user.phoneNumber" e-form="textBtnTel" ng-pattern="/^[0-9]+$/" e-maxlength="15">
+                                                    {{ user.phoneNumber || 'empty' }}
+                                                </span>
+                                                &nbsp;
+                                                &nbsp;
+                                                &nbsp;
+                                                <a class="btn btn-default" ng-click="textBtnTel.$show()" ng-hide="textBtnTel.$visible">
+                                                    edit
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="35%">Postal Code</td>
+                                            <td width="65%">
+                                                <span editable-text="user.postalCode" e-form="textBtnCode" e-maxlength="8">
+                                                    {{ user.postalCode || 'empty' }}
+                                                </span>
+                                                &nbsp;
+                                                &nbsp;
+                                                &nbsp;
+                                                <a class="btn btn-default" ng-click="textBtnCode.$show()" ng-hide="textBtnCode.$visible">
+                                                    edit
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr >
+                                            <td width="35%">Country</td>
+                                            <td width="65%">
+                                                <select style="width:300px" id="sel2" name="country" ng-model="user.countryId" ng-options="item.id as item.name for item in countries" ng-change="getStateByCountry(item.id)" required>
+                                                    <option value="country" selected="selected">{{(countries | filter:{id: user.countryId})[0].name || 'Not set' }}</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="35%">State</td>
+                                            <td width="65%">
+                                                <select style="width:300px" id="sel3" name="state" ng-model="user.stateId" ng-options="item.id as item.name for item in userState" required>
+                                                    <option value="state" selected="selected">
+                                                        {{(userState | filter:{id: user.stateId})[0].name || 'Not set' }}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="35%">City</td>
+                                            <td width="65%">
+                                                <select style="width:300px" id="sel4" name="city" ng-model="user.cityId" ng-options="item.id as item.name for item in userCity" required>
+                                                    <option value="city" selected="selected">
+                                                        {{(userCity | filter:{id: user.cityId})[0].name || 'Not set' }}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <footer class="panel-footer text-right bg-light lter">
+                                    <button type="submit" class="btn btn-success" data-ng-click="updateUserAccount()">Update Info</button>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    $(function ($) {
+
+        //nice select boxes
+        $('#sel2').select2();
+        $('#sel3').select2();
+        $('#sel4').select2();
+
+
+    });
+</script>

@@ -1,0 +1,23 @@
+﻿<div class="container w-xxl w-auto-xs" ng-controller="AdminSignInController" ng-init="app.settings.container = false;">
+    <div class="m-b-lg" cg-busy="myPromise">
+        <div class="wrapper text-center">
+            <strong>Admin Secure Login</strong>
+        </div>
+        <form name="frmLogin" class="form-validation">
+            <div data-ng-hide="message == ''" class="text-danger wrapper text-center">
+                {{message}}
+            </div>
+            <div class="list-group list-group-sm">
+                <div class="list-group-item">
+                    <input type="text" name="user" placeholder="Username" ng-model="loginData.userName" class="form-control no-border" required autofocus>
+                </div>
+                <div class="list-group-item">
+                    <input type="password" name="password" placeholder="Password" class="form-control no-border" ng-model="loginData.password" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-lg btn-black btn-block" ng-click="login()" ng-disabled='frmLogin.$invalid'>Log in</button>
+            
+        </form>
+    </div>
+    <div class="text-center" ng-include="'tpl/blocks/page_footer.html'"></div>
+</div>

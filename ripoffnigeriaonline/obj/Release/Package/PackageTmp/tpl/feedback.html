@@ -1,0 +1,36 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Feedback</h1>
+</div>
+<div class="line line-lg b-b b-light"></div>
+<div class="col-md-9">
+    <span class="help-block m-b-none" ng-show="!authLog(false)"><small>You must be logged in to post a feedback. Already have an account? Login <a ui-sref="access.signin" ng-click="cancel()">here</a> OR <a ui-sref="app.access.signup" ng-click="cancel()">REGISTER</a> to become a member.</small></span>
+    <div class="line line-lg b-b b-light"></div>
+    <div class="panel wrapper">
+        <form name="feedbackForm" class="form-validation">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="h4">Give us your Feedback</span>
+                </div>
+                <div class="panel-body">
+                    <p class="text-muted">Your feedback is really important to us.Please let us know what you feel about us.</p>
+                    <div class="line line-lg b-b b-light"></div>
+
+                    <div class="form-group">
+                        <label>Feedback</label>
+                        <textarea class="form-control" rows="6" name="feedback" ng-model="feedback.FeedbackMssg" placeholder="Please type your feedback here" required></textarea>
+                    </div>
+                    <div class="form-group has-error" ng-messages="feedbackForm.feedback.$error" ng-if="feedbackForm.$submitted || feedbackForm.feedback.$touched">
+                        <div class="help-block" ng-message="required">Field cannot be empty</div>
+                    </div>
+                </div>
+                <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+                    {{message}}
+                </div>
+                <footer class="panel-footer text-right bg-light lter">
+                    <button type="submit" class="btn btn-success" ng-disabled="feedbackForm.$invalid" data-ng-click="saveFeedback()">Submit</button>
+                </footer>
+            </div>
+        </form>
+
+    </div>
+</div>

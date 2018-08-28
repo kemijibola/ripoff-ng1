@@ -1,0 +1,90 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Complete Transaction</h1>
+</div>
+
+<div class="wrapper-md" cg-busy="myPromise">
+    <!--<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':false}"></toaster-container>-->
+    <div>
+        <div class="row">
+            <div class="col-sm-8">
+                <form name="paymentForm" class="form-validation" novalidate>
+                    <fieldset ng-disabled="isSaving == true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <span class="h4">Payment Process Form</span>
+                            </div>
+                            <div class="panel-body">
+                                <!--<p class="text-muted">Need a lawyer? please fill the fields below.</p>-->
+                                <!--<p class="text-danger">You will be charged a fee of N1,000 for this transaction</p>-->
+                                <p class="text-black">Please fill the form below carefully.</p>
+                                <div class="line line-lg b-b b-light"></div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label>Bank</label>
+                                        <div class="input-group">
+                                            <select style="width:300px" id="sel2" name="bank" ng-init="bankId=banks[0]" ng-model="bankId" ng-options="item.id as item.bankName for item in banks" required>
+                                                <option value="" selected>Select Bank</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Account Number</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-bank"></i></span>
+                                            <input type="text" class="form-control" name="actNumber" ng-model="payment.accountNumber" ng-pattern="/^[0-9]+$/" minlength="10" maxlength="10" required>
+                                        </div>
+                                        <div class="form-group has-error" ng-messages="paymentForm.actNumber.$error" ng-if="paymentForm.$submitted || paymentForm.actNumber.$touched">
+                                            <div class="help-block" ng-message="required"><p class="icon-remove-sign">Account Number is required!</p></div>
+                                            <div class="help-block" ng-message="maxlength"><p class="icon-remove-sign">Account Number does not exceed 10 digits</p></div>
+                                            <div class="help-block" ng-message="minlength"><p class="icon-remove-sign">Account Number is 10 digits</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label>Account Name</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <input type="text" class="form-control" name="actName" ng-model="payment.accountName" ng-pattern="/^[a-zA-Z\s]*$/" required>
+                                        </div>
+                                        <div class="form-group has-error" ng-messages="paymentForm.actName.$error" ng-if="paymentForm.$submitted || paymentForm.actName.$touched">
+                                            <div class="help-block" ng-message="required"><p class="icon-remove-sign">Account Name is required</p></div>
+                                            <div class="help-block" ng-message="pattern"><p class="icon-remove-sign">Number cannot be Account Name</p></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+                                {{message}}
+                            </div>
+                            <footer class="panel-footer text-right bg-light lter">
+                                <button type="submit" class="btn btn-success" ng-disabled="paymentForm.$invalid" data-ng-click="processPayment()" ui-toggle-class="show inline" target="#spin">
+                                    <span class="text">Complete Payment</span>
+                                    <span class="text-active"><i class="fa fa-spin fa-spinner hide" id="spin"></i> Please wait</span>
+                                </button>
+                            </footer>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="css/register.css" type="text/css" />
+<!--this page specific inline scripts-->
+<script>
+    $(function ($) {
+
+        //nice select boxes
+        $('#sel2').select2();
+        $('#sel3').select2();
+        $('#sel4').select2();
+
+
+    });
+</script>

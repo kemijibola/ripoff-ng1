@@ -1,0 +1,95 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">My Reports</h1>
+</div>
+
+<div class="wrapper-md" cg-busy="myPromise">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            My Reports  - All filed Reports against Company/Individual
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped b-t b-light">
+                <thead>
+                    <tr>
+                        <th style="width:30px;"></th>
+                        <th>Report#</th>
+                        <th>Legal Action</th>
+                        <th>Report</th>
+                        <th>Date</th>
+                        <th style="width:30px;">Status</th>
+                        <th style="width:30px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="report in userReports">
+                        <td style="width:20px;">{{$index+1}}</td>
+                        <td style="width:30px;">{{report.report.id}}</td>
+                        <td>
+                            <span ng-show="report.report.status == true && report.clientMeeting[0].reportId == null">
+                                <a ui-sref="app.form.getlawyer({reportId:report.report.id})" class="text-info-dker btn-link">
+                                    &nbsp;<i>Get Lawyer</i>
+                                </a>
+                            </span>
+                            <span ng-show="report.report.status == true && report.clientMeeting[0].reportId != null && report.clientMeeting[0].isValid == false">
+                                <a ui-sref="app.process({clientId: report.clientMeeting[0].id})" class="text-info-dker btn-link">
+                                    &nbsp;<i>Complete Transaction</i>
+                                </a>
+                            </span>
+                            <span ng-show="report.clientMeeting[0].isValid == true">
+                                <a ui-sref="app.lawsuit({reportId:report.report.id})" class="text-info-dker btn-link">
+                                    &nbsp;<i>Follow Legal Proceeding</i>
+                                </a>
+                            </span>
+                        </td>
+                        <td><a ui-sref="app.report.detail({reportId:report.report.id})" class="text-info-dker btn-link">{{report.report.reportText |htmlToPlaintext|limitTo: 70}}{{report.report.reportText.length > 70 ? '...' : ''}}</a></td>
+                        <td>{{report.report.dateCreated |date:'longDate'}}</td>
+                        <td style="width:30px;">
+                            <span ng-show="report.report.status == true" class="label bg-success">Approved</span>
+                            <span ng-show="report.report.status  == false" class="label bg-warning">Pending</span>
+                        </td>
+                        <td><a ui-sref="app.form.rebuttal({reportId:report.report.id})" class="text-info-dker btn-link" ng-show="report.report.status  == true"><i>Update</i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(function () {
+        //  $('.footable-page a').filter('[data-page="0"]').trigger('click');
+        $('table').trigger('footable_redraw');
+        localStorage.removeItem('firstload');
+
+    });
+
+</script>
+<style>
+    /*
+    Generic Styling, for Desktops/Laptops
+    */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    /* Zebra striping */
+    tr:nth-of-type(odd) {
+        background: #eee;
+    }
+
+    th {
+        background: #333;
+        color: white;
+        font-weight: bold;
+    }
+
+    td, th {
+        padding: 6px;
+        border: 1px solid #ccc;
+        text-align: left;
+    }
+</style>
+
+

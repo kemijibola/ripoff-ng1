@@ -1,0 +1,87 @@
+﻿<div class="bg-light lter b-b wrapper-md hidden-print">
+    <a href class="btn btn-sm btn-info pull-right" onclick="window.print();">Print</a>
+    <h1 class="m-n font-thin h3">Invoice</h1>
+</div>
+<div class="wrapper-md">
+    <div>
+        <div class="row">
+            <div class="col-xs-6">
+                <span class="pull-left"> <img src="img/jether-logosmall.png" alt="."></span>
+                <div class="line line-lg b-b b-light"></div>
+            </div>
+            <div class="col-xs-6">
+                <span class="pull-right"> <img src="img/rip_new-100.png" alt="."></span>
+            </div>
+        </div>
+        <div class="row">
+            <h3 class="m-t-none text-center">Jether Tech. Limited in Conjunction with rip-off Nigeria</h3>
+        </div>
+        <div class="row ">
+            <div class="col-xs-6"> 
+                <p class="text-sm">
+                    <h4>Jether Tech. Limited</h4>
+                    Executive Suite F8,<br>
+                    Super Plaza, Akerele, Surulere,<br>
+                    LAGOS STATE. <br>
+                    +234 808 0737 373
+                </p>
+                <p>
+                    Telephone:  800-692-7753<br>
+                    Email:  contact@rip-offnigeria
+                </p>
+            </div>
+            <div class="col-xs-6 text-right">
+                <p class="h4">Order Number: {{orderNumber}}</p>
+                <h5>{{getDateTime | date:'yyyy-MMM-dd'}}</h5>
+            </div>
+        </div>
+        <div class="well m-t bg-light lt">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <strong>BANK DEPOSIT/TRANSFER</strong>
+                    <h4>MAKE A BANK DEPOSIT/TRANSFER TO</h4>
+                    <strong><p>
+                        Account Name: JETHER TECH LIMITED<br>
+                        Account Number: 0210815945<br>
+                        Bank:  Guaranty Trust Bank​<br>
+                        <br>PLEASE NOTE:<br>
+                                ENTER YOUR ORDER NUMBER AND FULL NAME IN COMMENTS/REMARKS SECTION WHILE MAKING THE TRANSFER/DEPOSIT.<br>
+                                
+                                Consultation will be cancelled if the amount is not received in the Jether Tech. Limited Account within 2 business days.
+                    </p></strong>
+                </div>
+            </div>
+        </div>
+        <p class="m-t m-b">
+            Order Number: <strong> {{orderNumber}}</strong>
+        </p>
+        <div class="line"></div>
+        <table class="table table-striped bg-white b-a">
+            <thead>
+                <tr>
+                    <th style="width: 60px">QTY</th>
+                    <th>DESCRIPTION</th>
+                    <th style="width: 140px">UNIT PRICE</th>
+                    <th style="width: 90px">TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Consultation Fee</td>
+                    <td>N1,000.00</td>
+                    <td>N1,000.00</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3" class="text-right no-border"><strong>VAT Included in Total</strong></td>
+                    <td>$0.00</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-right no-border"><strong>Total</strong></td>
+                    <td><strong>N1,000.00</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

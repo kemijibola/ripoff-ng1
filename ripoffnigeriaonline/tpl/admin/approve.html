@@ -1,0 +1,48 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Approve/Deny</h1>
+</div>
+
+
+<div class="wrapper-md" cg-busy="myPromise">
+    <div class="col-sm-9">
+        <div class="panel panel-danger">
+            <div class="panel-heading font-bold">Report #:<small>{{reportDetails[0].report.id}}</small></div>
+            <div class="panel-body">
+                <div class="m-b m-t-none">
+                    <p>{{reportDetails[0].report.dateCreated|fromNow}}</p>
+                   {{reportDetails[0].report.reportText | htmlToPlaintext}}
+                </div>
+                
+            </div>
+            <div class="panel-footer text-center bg-light lter">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label class="i-checks">
+                            <input type="checkbox" ng-model="report.status" ng-change="onRoleChecked()" />
+                            <i></i>
+                            Approve
+                        </label>
+                    </div>
+                </div>
+                <div class="line line-lg b-b b-light"></div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>Reason for Rejection</label>
+                        <div>
+                            <select class="form-control m-b" name="topic" ng-model="report.rejectionId" ng-options="item.id as item.reason for item in rejectionReasons">
+                                <option value="" selected="" disabled="">Reason</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-t m-b">
+                    <button type="button" class="btn btn-success btn-rounded" ng-click="update()">Approve</button>
+                    <button type="button" class="btn btn-danger btn-rounded" ng-click="steps.step3=true">Reject</button>
+                    
+                </div>
+
+                 </div>
+            </div>
+        </div>
+    </div>
+

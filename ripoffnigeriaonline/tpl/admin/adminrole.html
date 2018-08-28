@@ -1,0 +1,51 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Register - Step TWO</h1>
+</div>
+
+<div class="wrapper-md">
+    <!--<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':false}"></toaster-container>-->
+    <div ng-controller="AdminRoleCtr">
+        <div class="row">
+            <div class="col-sm-12">
+                <form name="userForm" class="form-validation" novalidate>
+                    <fieldset ng-disabled="isSaving == true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <span class="h4">Add Role</span>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="panel-heading">
+                                        <div class="clearfix">
+                                            <div class="clear">
+                                                <div class="h3 m-t-xs m-b-xs">
+                                                    {{userName}}Test
+                                                    <i class="fa fa-circle text-success pull-right text-xs m-t-sm"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="form-group col-md-6">
+                                        <label>Username</label>
+                                    </div>-->
+                                </div>
+
+                            </div>
+                            <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+                                {{message}}
+                            </div>
+
+                            <footer class="panel-footer text-right bg-light lter">
+                                <button type="submit" class="btn btn-success" ng-disabled="userForm.$invalid" data-ng-click="signUp()" ui-toggle-class="show inline" target="#spin">
+                                    <span class="text">Create account</span>
+                                    <span class="text-active"><i class="fa fa-spin fa-spinner hide" id="spin"></i> Please wait</span>
+                                </button>
+                            </footer>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

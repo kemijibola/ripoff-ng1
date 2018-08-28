@@ -1,0 +1,46 @@
+﻿
+<div cg-busy="myPromise">
+    <div class="hbox hbox-auto-xs hbox-auto-sm">
+        <div class="col">
+            <div class="bg-light lter b-b wrapper-md">
+                <h1 class="m-n font-thin h3">Approval List</h1>
+            </div>
+
+            <div class="wrapper bg-white b-b">
+
+                <span class="m-b-xs h4 block text-black">
+                    <b class="text-danger">{{allreportLength}}</b> reports waiting for approval.
+                </span>
+            </div>
+
+            
+                <li class="list-group-item" dir-paginate="report in getUnapprovedReport | itemsPerPage: pageSize" current-page="currentPage" pagination-id="approvalPagination">
+                    <small href="#" class="text-primary m-b-sm m-t-sm block">{{report.dateCreated|fromNow}}</small>
+                    <small class="text-muted clear text-ellipsis"><a ui-sref="admin.details({reportId:report.id})">{{report.reportText|htmlToPlaintext|limitTo: 200}}{{report.reportText.length > 100 ? '...' : ''}}</a></small>
+                </li>
+                    <div class="btn-group pull-right">
+
+                        <dir-pagination-controls boundary-links="true" pagination-id="approvalPagination" on-page-change="pageChangeHandler(newPageNumber)" template-url="js/directives/dirPagination.tpl.html"></dir-pagination-controls>
+                    </div>
+
+        </div>
+
+        <div class="col w-lg bg-light lter b-l bg-auto">
+            <div class="wrapper">
+                <!--<div class="">
+                    <h4 class="text-black center text-lg">Our In House Solicitors</h4>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class=" m-b">
+                                <div class="m-b">
+                                    <img src="img/full_chronicles.jpg" class="b b-a wrapper-xs bg-white img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>

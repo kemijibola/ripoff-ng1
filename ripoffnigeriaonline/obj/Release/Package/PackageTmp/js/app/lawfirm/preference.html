@@ -1,0 +1,52 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Lawyer Listings</h1>
+</div>
+
+
+
+<div class="wrapper bg-light lter b-b">
+    <div class="btn-toolbar">
+        <form name="form" class="form-validation">
+            <label class="col-sm-2 control-label text-left">Search Directory</label>
+            <div class="col-sm-6">
+
+                <ui-select ng-model="category.Lawcategory" theme="bootstrap" required on-select="onSelected($item)">
+                    <ui-select-match placeholder="Select or search area of preference in the list...">{{$select.selected.areaOfPreference}}</ui-select-match>
+                    <ui-select-choices repeat="item in lawyerPreference | filter: $select.search">
+                        <div ng-bind-html="item.areaOfPreference | highlight: $select.search"></div>
+                        <small ng-bind-html="item.generalCategory | highlight: $select.search"></small>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-success" ng-click="searchFirmByName()">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="line line-lg b-b b-light"></div>
+        <!--<div class="line line-dashed b-b line-lg"></div>-->
+
+        <div class="col-sm-8">
+            <ul class="list-group list-group-lg no-radius m-b-none m-t-n-xxs">
+                <li dir-paginate="firm in lawbyfirmcategories | itemsPerPage: pageSize" current-page="currentPage" class="list-group-item clearfix b-l-3x" pagination-id="firmPagination">
+                    
+                    <span class="avatar thumb pull-left m-r" ng-href="firmImages/{{ripofffirm.ripOffFirm.firmImages[0].imagePath}}">
+                        <img ng-src="firmImages/{{firm.ripFirm[0].firmImages[0].imagePath}}" class="img-full" />
+                    </span>
+                    <div class="pull-right text-sm text-muted">
+                        <a ui-sref="app.details({lawfirmId:firm.ripFirm[0].id})" class="btn btn-xs btn-success m-t-xs">Go to Firm Page</a>
+                    </div>
+                    <div class="clear">
+                        <div><span class="text-md">{{firm.ripFirm[0].firmName}}</span><span class="label bg-light m-l-sm">{{firm.ripOffFirm.lawCategory.areaOfPreference}}</span></div>
+
+                    </div>
+                </li>
+            </ul>
+
+            <div class="padder btn-group pull-left">
+                <dir-pagination-controls boundary-links="true" pagination-id="firmPagination" on-page-change="pageChangeHandler(newPageNumber)" template-url="js/directives/dirPagination.tpl.html"></dir-pagination-controls>
+            </div>
+
+        </div>
+

@@ -1,0 +1,97 @@
+﻿
+<div cg-busy="myPromise">
+    <div class="hbox hbox-auto-xs hbox-auto-sm">
+        <div class="col">
+            <div class="bg-light lter b-b wrapper-md">
+                <h1 class="m-n font-thin h3">Reports</h1>
+            </div>
+
+            <div class="wrapper bg-white b-b">
+
+                <span class="m-b-xs h4 block text-black">
+                    We do <b class="text-danger">NOT</b> alter reports filed against individuals or companies.
+                </span>
+                <span class="m-b-xs h4 block text-black">
+                    We do <b class="text-danger">NOT</b> remove reports from our database.
+                </span>
+            </div>
+
+
+            <div class="line line-lg b-b b-light"></div>
+            <!--<div class="line line-dashed b-b line-lg"></div>-->
+            <div class="padder">
+
+
+
+                <div class="padder">
+                    <div class="text-black m-t-xl" ng-show="!getallreportByDates.length">Happy consumers...No report filed yet!</div>
+                    <div dir-paginate="report in getallreportByDates | itemsPerPage: pageSize" current-page="currentPage" pagination-id="reportsPagination">
+                        <a class="pull-left thumb-sm avatar m-l-n-md">
+                            <p class="fa fa-frown-o fa-3x"></p>
+                        </a>
+                        <div class="m-l-lg panel b-a">
+                            <div class="panel-heading pos-rlt b-b b-light">
+                                <span class="arrow left"></span>
+
+                                <a href>{{report.userName}}</a>
+                                <label class="label bg-light m-l-xs">Report #: {{report.report.id}}</label>
+                                &nbsp; &nbsp;
+  
+
+                                <span ng-show="report.report.reportImages[0].imagePath"><i class="fa fa-picture-o text-primary"></i></span> &nbsp;
+                                <span ng-show="report.report.rebuttals[0].reportId"><i class="fa fa-file-text text-success"> </i></span> &nbsp;
+                                <span ng-show="report.report.caseUpdates[0].reportId"><i class="fa fa-legal text-info"> </i></span> &nbsp;
+                                <span class="text-muted m-l-sm pull-right">
+                                    {{report.report.dateCreated|fromNow}}
+                                </span>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <p><a ui-sref="app.report.detail({reportId:report.report.id})" class="text-info-dker btn-link">{{report.report.reportText|htmlToPlaintext|limitTo: 200}}{{report.report.reportText.length > 100 ? '...' : ''}}</a></p>
+                                    <small>{{report.report.category.name}} in <cite title="Source Title">{{report.report.topic.name}}</cite></small>
+                                    <div><strong>{{report.report.company}}</strong> <!--in {{city[0].report.city.name}}, {{report.report.state.name}}--></div>
+                                    <!--<a ui-sref="app.report.detail({reportId:report.report.id})" class="btn btn-xs btn- m-t-xs pull-right">Read more</a>-->
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-auto lter b-b wrapper-sm">
+                        <div class="text-black-dk">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>LEGEND</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-legal text-info"> -</i> Legal Proceeding
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="fa fa-file-text text-success"> -</i> Rebuttal/Update
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="fa fa-picture-o text-primary"> -</i> Picture
+                        </div>
+                    </div>
+                    <div class="btn-group pull-right">
+
+                        <dir-pagination-controls boundary-links="true" pagination-id="reportsPagination" on-page-change="pageChangeHandler(newPageNumber)" template-url="js/directives/dirPagination.tpl.html"></dir-pagination-controls>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col w-lg bg-light lter b-l bg-auto">
+            <div class="wrapper">
+                <!--<div class="">
+                    <h4 class="text-black center text-lg">Our In House Solicitors</h4>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class=" m-b">
+                                <div class="m-b">
+                                    <img src="img/full_chronicles.jpg" class="b b-a wrapper-xs bg-white img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>

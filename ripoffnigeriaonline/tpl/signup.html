@@ -1,0 +1,231 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Register</h1>
+</div>
+
+<div cg-busy="myPromise" class="wrapper-md">
+    <!--<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':false}"></toaster-container>-->
+    <div ng-controller="SignupFormController">
+        <div class="row">
+            <div class="col-sm-12">
+                <form name="userForm" class="form-validation" novalidate>
+                    <fieldset ng-disabled="isSaving == true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <span class="h4">Create your own account</span>
+                            </div>
+                            <div class="panel-body">
+                                <p class="text-muted">Please note that rip-off Nigeria will not share your details with any third party.Read our privacy report <a class="text-info font-bold btn-link" ui-sref="app.privacy" target="_blank">here</a> for more details.</p>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <b class="text-danger">*</b>
+                                        <label>Username</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <input type="text" class="form-control" name="username" ng-model="registration.userName" ng-pattern="/^[a-zA-Z0-9]{4,15}$/" required unique-username ng-model-options="{ updateOn: 'default blur', debounce: {'default': 300, 'blur': 0} }">
+                                        </div>
+                                        <em class="text-muted">ex. username allows 4 - 15 characters</em>
+                                        <div class="form-group has-error" ng-messages="userForm.username.$error" ng-if="userForm.username.$dirty || userForm.username.$touched || userForm.username.$submitted">
+                                            <div class="help-block" ng-message="required"><p class="icon-remove-sign">Username is required</p></div>
+                                            <div class="help-block" ng-message="pattern"><p class="icon-remove-sign">Username allows 4 - 15 characters</p></div>
+                                            <div class="help-block" ng-message when="unique">Username already in use</div>
+                                            <span class="help-block" ng-if="userForm.username.$pending">
+                                                Checking Username...
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <b class="text-danger">*</b>
+                                        <label>Email</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                            <input type="email" class="form-control" name="email" ng-model="registration.email" ng-pattern="/^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/" unique-email ng-model-options="{ updateOn: 'default blur', debounce: {'default': 300, 'blur': 0} }" required>
+                                        </div>
+                                        <em class="text-muted">ex. johngreg@domain.com</em>
+                                        <div class="form-group has-error" ng-messages="userForm.email.$error" ng-if="userForm.$submitted || userForm.email.$touched">
+                                            <div class="help-block" ng-message="pattern"><p class="icon-remove-sign">A valid email is required</p></div>
+                                            <div class="help-block" ng-message when="unique">Email already asscociated with an account</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <b class="text-danger">*</b>
+                                        <label class="control-label" for="inputPassword">Password</label>
+                                        <div class="input-group controls">
+                                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                            <!--<input ng-model="registration.password" class="form-control immediate-help" password-validate required type="password" id="inputPassword" name="inputPassword" placeholder="Password">-->
+                                            <input type="password" class="form-control" ng-model="registration.password" placeholder="Password" required minlength="6" name="password">
+                                            <!--<div class="input-help">
+                                                <h4>Password must meet the following requirements:</h4>
+                                                <ul>
+                                                    <li ng-class="pwdHasLowerCase">Must contain <strong>lower letters</strong></li>
+                                                    <li ng-class="pwdHasNumber">Must contain<strong>at least one number</strong></li>
+                                                    <li ng-class="pwdValidLength">At least <strong>8 characters long</strong></li>
+                                                    <li ng-class="pwdHasCapital">At least <strong>Capital Letter</strong></li>
+                                                    <li ng-class="pwdHasSymbol">At least <strong>Special Character</strong></li>
+                                                </ul>
+                                            </div>-->
+                                        </div>
+                                        <div class="form-group has-error" ng-messages="userForm.password.$error" ng-if="userForm.$submitted || userForm.password.$touched">
+                                            <div class="help-block" ng-message="required">Password field cannot be empty</div>
+                                            <div class="help-block" ng-message="minlength">Password cannot be less than 6</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <b class="text-danger">*</b>
+                                        <label>Confirm password</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span>
+                                            <!--<input type="password" class="form-control" password-validate name="confirmPassword" required data-indicator="pwindicator" ng-model="registration.confirmPassword" ui-validate=" '$value==registration.password' " ui-validate-watch=" 'registration.password' ">-->
+                                            <input type="password" class="form-control" name="confirmPassword" required ng-model="registration.confirmPassword" ui-validate=" '$value==registration.password' " ui-validate-watch=" 'registration.password' ">
+                                        </div>
+                                        <div class="form-group has-error">
+                                            <div class="help-block" ng-show='userForm.confirmPassword.$error.validator'><p class="icon-remove-sign">Passwords do not match!</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <b class="text-danger">*</b>
+                                        <label>Full Name</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user-md"></i></span>
+                                            <input type="text" class="form-control" name="fname" ng-model="registration.name" ng-pattern="/^[a-zA-Z\s]*$/" required>
+                                        </div>
+                                        <em class="text-muted">ex. John Greg</em>
+                                        <div class="form-group has-error" ng-messages="userForm.fname.$error" ng-if="userForm.$submitted || userForm.fname.$touched">
+                                            <div class="help-block" ng-message="required">Enter your full name</div>
+                                            <div class="help-block" ng-message="pattern">Number cannot be included in name</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <b class="text-danger">*</b>
+                                        <label>Telephone</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                            <input type="tel" class="form-control" name="phone" ng-model="registration.phoneNumber" ng-pattern="/^[0-9]+$/" minlength="6" maxlength="15">
+                                        </div>
+                                        <em class="text-muted">ex. 08010000000</em>
+                                        <div class="form-group has-error" ng-messages="userForm.phone.$error" ng-if="userForm.$submitted || userForm.phone.$touched">
+                                            <div class="help-block" ng-message="pattern">Your telephone must be digits</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label>Telephone</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                            <input type="tel" class="form-control" name="phone" ng-model="registration.phoneNumber" ng-pattern="/^[0-9]+$/" minlength="6" maxlength="15">
+                                        </div>
+                                        <em class="text-muted">ex. 08010000000</em>
+                                        <div class="form-group has-error" ng-messages="userForm.phone.$error" ng-if="userForm.$submitted || userForm.phone.$touched">
+                                            <div class="help-block" ng-message="pattern">Your telephone must be digits</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Postal Code</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span>
+                                            <input type="text" class="form-control" placeholder="(Optional)" name="zip" ng-model="registration.postalCode" maxlength="8">
+                                        </div>
+                                        <em class="text-muted">ex. 23402</em>
+                                        <div class="form-group has-error" ng-messages="userForm.zip.$error" ng-if="userForm.$submitted || userForm.zip.$touched">
+                                            <div class="help-block" ng-message="maxlength">Your Postal Code is too long</div>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <!--<div class="row">
+                                    <div class="form-group col-md-4 form-group-select2">
+                                        <label>Country</label>
+                                        <div class="input-group">
+                                            <select style="width:270px" id="sel2" name="country" ng- ng-disabled="countryLoaded == false" ng-init="countryId=countries[0]" ng-model="countryId" ng-options="item.id as item.name for item in countries" ng-change="getStateByCountry(item.id)" required>
+                                                <option value="" selected>Select Country</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-4 form-group-select2">
+                                        <label>State</label>
+                                        <div class="input-group">
+                                            <select style="width:270px" id="sel3" name="state" ng-disabled="stateLoaded==false" ng-init="stateId=states[0]" ng-model="stateId" ng-options="item.id as item.name for item in states" ng-change="getCityByState(item.id) " required>
+                                                <option value="" selected>
+                                                    Select State
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4 form-group-select2">
+                                        <label>City</label>
+                                        <div class="input-group">
+                                            <select style="width:270px" id="sel4" name="city" ng-disabled="cityLoaded==false" ng-init="cityId=cities[0]" ng-model="cityId" ng-options="item.id as item.name for item in cities" required>
+                                                <option value="" selected>Select City</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <div class="form-group col-md-12">
+                                    <div class="checkbox">
+                                        <label class="i-checks">
+                                            <input type="checkbox" id="checkbox-1" ng-model="registration.interestedLawyer" true-value="True" false-value="False"><i></i> Send me the contact information if a lawyer is interested in my particular case.
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="i-checks">
+                                            <input type="checkbox" id="checkbox-2" ng-model="registration.allAdvocate" true-value="True" false-value="False"><i></i> I am willing to be contacted by the media, a consumer advocate, lawyer or government authority to help further my cause or to help with an investigation against the business or individual I am reporting.
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="i-checks">
+                                            <input type="checkbox" id="checkbox-3" ng-model="registration.commentonmyReport" true-value="True" false-value="False"><i></i> Notify me when someone files a rebuttal or consumer comment to my report.(If multiple rebuttals are made in one day you will receive multiple e-mails)
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="i-checks">
+                                            <input type="checkbox" id="checkbox-4" ng-model="registration.commentonmyRebuttal" true-value="True" false-value="False"><i></i> Notify me when someone files a rebuttal or consumer comment to a rebuttal I have filed on a report. (If multiple rebuttals are made in one day you will receive multiple e-mails)
+                                        </label>
+                                    </div>
+                                </div>
+                                <input type=hidden value="GeneralUser" ng-model="registration.typeofUser" />
+                            </div>
+                            <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+                                {{message}}
+                            </div>
+
+                            <footer class="panel-footer text-right bg-light lter">
+                                <span us-spinner="{radius:30, width:8, length: 16}"></span>
+                                <button type="submit" class="btn btn-success" ng-click="signUp()" ng-disabled="userForm.$invalid">Sign Up</button>
+                                <!--<button type="submit" class="btn btn-success" ng-disabled="userForm.$invalid" data-ng-click="signUp()" ui-toggle-class="show inline" target="#spin">
+                                    <span class="text">Create my account</span>
+                                    <span class="text-active"><i class="fa fa-spin fa-spinner hide" id="spin"></i> Please wait</span>
+                                </button>-->
+                            </footer>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="css/register.css" type="text/css" />
+ <!--this page specific inline scripts--> 
+<script>
+    $(function ($) {
+
+        //nice select boxes
+        $('#sel2').select2()
+                .on("change", function (e) {
+                    $('#sel3').select2("val", "", false)
+                    $('#sel4').select2("val", "", false)
+                })
+        ;
+        $('#sel3').select2()
+                    .on("change", function (e) {
+                        $('#sel4').select2("val", "", false)
+                    })
+        ;
+        $('#sel4').select2({ allowClear: true });
+
+    });
+
+</script>

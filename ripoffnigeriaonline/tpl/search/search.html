@@ -1,0 +1,31 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3"><i class="icon-magnifier i-sm m-r-sm"></i> Search</h1>
+</div>
+<div class="wrapper-md">
+    <!--<p class="m-b-md"><strong>{{searchLength}}</strong> Results found</p>-->
+    <div>
+        <div cg-busy="myPromise">
+            <div class="text-center">
+                Result(s) found for: <strong class="text-capitalize">{{companySearchingFor}}</strong><span class="badge bg-danger badge-sm m-l-xs">{{searchLength}}</span>
+            </div>
+            <span class="text-dark m-t-xl" ng-show="!searchLength">No result found!</span>
+            <ul dir-paginate="report in resSearch | itemsPerPage: pageSize" current-page="currentPage" pagination-id="searchPagination">
+                <!--<ul class="list-group no-borders pull-in m-b-none" ng-repeat="report in resSearch">-->
+                <li class="list-group-item">
+                    <p href="#" class="h4 text-dark m-b-sm m-t-sm block">{{report.report.category.name}} in {{report.report.topic.name}} </p>
+                    <a ui-sref="app.report.detail({reportId:report.report.id})" class="text-info-dker btn-link">{{report.report.reportText|htmlToPlaintext|limitTo: 200}}{{report.report.reportText.length > 100 ? '...' : ''}}</a>
+                    <div class="text-muted">
+                        <i class="fa fa-arrow-circle-up text-muted"> </i> <a> Report #: {{report.report.id}} </a>&nbsp;&nbsp;&nbsp;
+                        <i class="fa fa-user text-muted"></i> by <a href class="m-r-sm"> {{report.userName}} </a>&nbsp;&nbsp;&nbsp;
+                        <i class="fa fa-clock-o text-muted"></i><a> {{report.report.dateCreated| fromNow}} </a>&nbsp;&nbsp;&nbsp;
+                        <i class="fa fa-comment-o text-muted"></i><a> {{report.report.company}} </a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="btn-group pull-right">
+        <dir-pagination-controls boundary-links="true" pagination-id="searchPagination" on-page-change="pageChangeHandler(newPageNumber)" template-url="js/directives/dirPagination.tpl.html"></dir-pagination-controls>
+    </div>
+</div>

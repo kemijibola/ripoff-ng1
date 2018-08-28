@@ -1,0 +1,86 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Contact Law Firm</h1>
+</div>
+<div class="line line-lg b-b b-light"></div>
+<div class="col">
+
+    <!-- / main header -->
+    <div class="wrapper-md">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel wrapper">
+                    <h3>I need a Lawyer from this platform</h3>
+                    <p>The consumer is king and is always right. This saying gained wide recognition and acceptance as consumer protection laws were enacted and consumers became more aware of their rights when purchasing goods and services. Encarta dictionaries define a consumer as a buyer of goods and services and some as someone who consumes something by eating it, drinking it or using it up.  Consumer protection Law is a group of laws designed to ensure the rights of consumers as well as fair place.<p>
+                    <p>Basically, consumer protection laws are laws that are designed to protect consumers by ensuring that consumers have access to accurate information about products and services for sale.</p>
+                    <p>Consumerism is the protection of rights and interests of consumers especially with rights, which include the right to safety, the right to information, the right to choose, the right to redress, the right to consumer education, the right to consumer representation and the right to a healthy environment.</p>
+                    <p>Essentially, consumer protection laws are designed to prevent businesses over competitors and may provide additional protection for the weak and a form of government regulation, which aims at protecting the rights of consumers.</p>
+                    <p>Where a consumer is not satisfied or feels short changed, he or she is entitled to seek for redress by possible compensation through a regulatory body. </p>
+                    <p>In Nigeria for instance, such a body is the Consumer Protection Council (C.P.C). The C.P.C was established by Act No. 66 of 1992 to provide holistic protection of the consumer in line with the United Nations guidelines for Consumer Protection of 1985. The CPC is an agency of the Federal Government of Nigeria, supervised by the Federal Ministry of Trade and Investment. It is the apex consumer protection agency of the Federal Government of Nigeria.</p>
+                    <p>Though it was established by an Act in 1992,  it commenced operations only in 1999, when its institutional framework was put in place. This was the first formal step towards giving the Nigeria consumer hope of redress when wronged by a product or service he chose to use.</p>
+                    <p>Despite this structure set up by the Nigerian Government to ensure consumers are protected, Nigerian consumers are among the most exploited in the globe. You talk of consumer exploitation and you think of the maltreatment that Nigerian tenants suffer in the hands of landlords-incessant hikes in rents. You also have the case of epileptic power supply by the Power Holding Company of Nigeria (P.H.C.N) and yet exorbitant bills are at your doorpost even before the month ends. Most products in the market place do not even meet the standard projected or advertised to consumers.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel wrapper">
+                    <form name="firmForm" class="form-validation" novalidate>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <span class="h4">Contact Firm</span>
+                            </div>
+                            <div class="panel-body">
+                                <p class="text-muted">Need a lawyer? please fill the fields below.</p>
+                                <div class="line line-lg b-b b-light pull-in"></div>
+                                <div class="form-group pull-in clearfix">
+                                    <div class="col-sm-6">
+                                        <label>Your Report#:</label>
+                                        <input type="text" class="form-control" name="reportId" ng-model="contactfirm.reportId" placeholder="Enter your Report number" ng-pattern="/^[0-9]+$/" required unique-report ng-model-options="{ updateOn: 'default blur', debounce: {'default': 300, 'blur': 0} }">
+                                        <div class=" form-group has-error" ng-messages="firmForm.reportId.$error" ng-if="firmForm.reportId.$dirty || firmForm.reportId.$touched || firmForm.reportId.$submitted">
+                                            <div class="help-block" ng-message="pattern">Your Report number is in digits</div>
+                                            <div class="help-block" ng-message when="unique">Report is not Available</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>Contact me on this Phone Number</label>
+                                        <input type="text" class="form-control" name="phone" placeholder="Enter email" ng-model="contactfirm.phone" ng-pattern="/^[0-9]+$/" required>
+                                    </div>
+                                </div>
+                                <div class="form-group pull-in clearfix">
+                                    <div class="col-sm-6">
+                                        <label>Contact me on this Email Address</label>
+                                        <input type="email" class="form-control" name="email" ng-model="contactfirm.email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <ui-select multiple ng-model="contactfirm.firmRegion" theme="bootstrap" ng-disabled="disabled">
+                                            <ui-select-match placeholder="Select region where you want lawfirm...">{{$item.name}} &lt;{{$item.email}}&gt;</ui-select-match>
+                                            <ui-select-choices group-by="someGroupFn" repeat="person in people | propsFilter: {name: $select.search, age: $select.search}">
+                                                <div ng-bind-html="person.name | highlight: $select.search"></div>
+                                                <small>
+                                                    email: {{person.email}}
+                                                    age: <span ng-bind-html="''+person.age | highlight: $select.search"></span>
+                                                </small>
+                                            </ui-select-choices>
+                                        </ui-select>
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Message</label>
+                                    <textarea class="form-control" rows="6" placeholder="This is Optional"></textarea>
+                                </div>
+                            </div>
+                            <footer class="panel-footer text-right bg-light lter">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </footer>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- / tasks -->
+    </div>
+</div>

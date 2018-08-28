@@ -1,0 +1,94 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Rebuttal/Update</h1>
+</div>
+
+
+<div class="wrapper-md" cg-busy="myPromise">
+    <div class="col-sm-9">
+        <div class="panel panel-danger">
+            <div class="panel-heading font-bold">Original Report</div>
+            <div class="panel-body">
+                <div class="m-b m-t-none">
+                    {{reportDetails[0].report.reportText | htmlToPlaintext}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="wrapper-md">
+        <div class="col-sm-9">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold">Add Rebuttal/Update for this Report</div>
+                <div class="panel-body">
+                    <form name="rebuttal" class="form-validation" novalidate>
+                        <fieldset ng-disabled="isSaving == true">
+                            <div class="panel-body">
+                                <p class="text-muted">Please fill form below if you had similar experience with the reported company or you would like to update your report</p>
+
+                                <div class="line line-dashed b-b line-lg"></div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-9">
+                                        <label>Give your Rebuttal/Update a Title</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-ticket"></i></span>
+                                            <input type="text" class="form-control" name="title" ng-model="newRebuttal.Title" required>
+                                        </div>
+                                        <div class="form-group has-error" ng-messages="rebuttal.title.$error" ng-if="rebuttal.$submitted || rebuttal.title.$touched">
+                                            <div class="help-block" ng-message="required">Enter Title for your Rebuttal/Update</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="wrapper-md">
+                                            <div lazy-load="textAngular">
+                                                <div text-angular ng-model="newRebuttal.RebuttalText" class="btn-groups" required></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <label>Street Address of the Company or Individual</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                                            <input type="text" class="form-control" name="address" placeholder="Optional" ng-model="newRebuttal.address">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>State</label>
+                                        <div>
+                                            <select class="form-control m-b" name="state" ng-model="newRebuttal.StateId" ng-options="item.id as item.name for item in states" data-ng-change="getCityByState(item.id)" required>
+                                                <option value="" selected="" disabled="">State</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>City</label>
+                                        <div>
+                                            <select class="form-control m-b" name="city" ng-model="newRebuttal.CityId" ng-options="item.id as item.name for item in cities" required>
+                                                <option value="" selected="" disabled="">City</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-t m-b">
+                                    <button class="btn btn-success" ng-click=save() ui-toggle-class="show inline" target="#spin" ng-disabled="rebuttal.$invalid">
+                                        <span class="text">Submit</span>
+                                        <span class="text-active"><i class="fa fa-spin fa-spinner hide" id="spin"></i> Please wait</span>
+                                    </button>
+                                    
+                                </div>
+                            </div>
+                       </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
